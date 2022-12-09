@@ -17,7 +17,7 @@ We constructed the UHGV by integrated gut virome collections from a number of re
 
 ## Bioinformatics pipeline
 
-Briefly, viral genomes were downloaded from the sources listed above. For additional detail, please refer to our manuscript (in preparation).
+Viral genomes were downloaded from the sources listed above. [geNomad](https://portal.nersc.gov/genomad/) was used to confirm a viral origin and to excise provirues from bacterial chromosomes, as necessary. [CheckV](https://bitbucket.org/berkeleylab/checkv) was used to trim any remaining bacterial DNA from virus ends, estimate completeness, and identify closed genomes. Sequences >10Kb or >50% complete were retained and classified as either complete, high-quality (>90% complete), medium-quality (50-90% complete), or low-quality (<50% complete). Viral genomes were clustered into operational taxonomic units at approximately the species, subgenus, genus, subfamily, and family-level ranks using a combination of genome-wide ANI (for species level vOTUs) and genome-wide proteomic similarity (for higher ranks). Taxonomy was inferred using a best-hit approach to phage genomes from the ICTV and using taxon-specific marker genes from geNomad. Hosts were predicted using a large database of bacterial and archael genomes that included the [UHGG v2](http://ftp.ebi.ac.uk/pub/databases/metagenomics/mgnify_genomes/human-gut/v2.0/) and [>48K MAGs from Hadza hunter gatherers](https://www.biorxiv.org/content/10.1101/2022.03.30.486478v2). Prediction methods included [CRISPR spacer matching](https://github.com/snayfach/MGV/tree/master/crispr_spacers) and kmer matching with [PHIST](https://github.com/refresh-bio/PHIST). Phage lifestyle was inferred using [BACPHLIP](https://github.com/adamhockenberry/bacphlip), integrases from the [PHROG database](https://phrogs.lmge.uca.fr/), and excision information from geNomad. Protein coding genes and alternative genetic codes were predicted using [Prodigal-gv](https://github.com/apcamargo/prodigal-gv). For additional detail, please refer to our manuscript (in preparation).
 
 ## Data Resource
 
@@ -25,6 +25,10 @@ The data resource can be accessed without restrictions at: https://portal.nersc.
 
 Details on individual files are listed below
 
+
+## Compare new viruses to the UHGV
+
+## Assembly-free detection of UHGV viral taxa from metagenomic reads
 
 
 <b>High quality MAGs (N=24345)</b>   
