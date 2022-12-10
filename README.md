@@ -28,13 +28,15 @@ We constructed the UHGV by integrating gut virome collections from a number of r
 Sequences from these studies were combined and run through the following bioinformatics pipeline:
 - [geNomad](https://portal.nersc.gov/genomad/) was used to confirm a viral origin and to excise provirues from bacterial chromosomes (as necessary)
 - [CheckV](https://bitbucket.org/berkeleylab/checkv) was used to trim remaining bacterial DNA from virus ends, estimate completeness, and identify closed genomes. Sequences >10Kb or >50% complete were retained and classified as either complete, high-quality (>90% complete), medium-quality (50-90% complete), or low-quality (<50% complete)
-- Viral genomes were clustered into operational taxonomic units at approximately the species, subgenus, genus, subfamily, and family-level ranks using a combination of genome-wide ANI (for species level vOTUs) and genome-wide proteomic similarity (for higher ranks). 
-- A representative genome was selected for each vOTU based on: terminal repeats, completeness, and viral genes
-- Taxonomy was inferred using a best-hit approach to phage genomes from the ICTV and using taxon-specific marker genes from geNomad. 
-- Prokaryotic hosts were predicted using a large database of bacterial and archael genomes that included the [UHGG v2](http://ftp.ebi.ac.uk/pub/databases/metagenomics/mgnify_genomes/human-gut/v2.0/) and [>48K MAGs from Hadza hunter gatherers](https://www.biorxiv.org/content/10.1101/2022.03.30.486478v2). Prediction methods included [CRISPR spacer matching](https://github.com/snayfach/MGV/tree/master/crispr_spacers) and kmer matching with [PHIST](https://github.com/refresh-bio/PHIST)
-- Phage lifestyle was inferred using [BACPHLIP](https://github.com/adamhockenberry/bacphlip), integrases from the [PHROG database](https://phrogs.lmge.uca.fr/), and excision information from geNomad
-- Protein coding genes and alternative genetic codes were predicted using [Prodigal-gv](https://github.com/apcamargo/prodigal-gv)
-- Proteins were functionally annotated using the eggNOG-mapper, PHROGs, KOfam, Pfam, and UniProt
+- Viral genomes were clustered into viral operational taxonomic units (vOTUs) at approximately the species, subgenus, genus, subfamily, and family-level ranks using a combination of genome-wide ANI for the species level and genome-wide proteomic similarity for higher ranks
+- A representative genome was selected for each species level vOTU based on: presence of terminal repeats, completeness, and ratio of viral:non-viral genes
+- [ICTV](https://ictv.global/vmr) taxonomy was inferred using a best-genome-hit approach to phage genomes from [INPHARED](https://github.com/RyanCook94/inphared) and using taxon-specific marker genes from [geNomad](https://portal.nersc.gov/genomad/) 
+- [CRISPR](https://github.com/snayfach/MGV/tree/master/crispr_spacers) spacer matching and kmer matching with [PHIST](https://github.com/refresh-bio/PHIST) were used to connect viruses and host genomes
+- [HumGut](https://arken.nmbu.no/~larssn/humgut/) genomes and MAGs from a [Hadza](https://www.biorxiv.org/content/10.1101/2022.03.30.486478v2) hunter gatherer population were used for host prediction and read mapping. Note: HumGut contains all genomes from the [UHGG v1.0](http://ftp.ebi.ac.uk/pub/databases/metagenomics/mgnify_genomes/human-gut/v1.0/) combined with NCBI genomes detected in gut metagenomes
+- [GTDB r207](https://gtdb.ecogenomic.org/) and [GTDB-tk](https://github.com/Ecogenomics/GTDBTk) were used to assign taxonomy to all prokaryotic genomes
+- [BACPHLIP](https://github.com/adamhockenberry/bacphlip) was used for prediction of phage lifestyle together with integrases from the [PHROG ](https://phrogs.lmge.uca.fr/) database and prophage information from geNomad
+- [Prodigal-gv](https://github.com/apcamargo/prodigal-gv) was used to identify protein coding genes and alternative genetic codes
+- [eggNOG-mapper](https://github.com/eggnogdb/eggnog-mapper), [PHROGs](https://phrogs.lmge.uca.fr/), [KOfam](https://www.genome.jp/ftp/db/kofam/), [Pfam](http://pfam.xfam.org/), and [UniRef_90](https://ftp.uniprot.org/pub/databases/uniprot/current_release/uniref/uniref90/) were used for phage gene functional annotation
 
 For additional details, please refer to our manuscript: (in preparation).
 
@@ -46,6 +48,8 @@ For additional details, please refer to our manuscript: (in preparation).
 - uhgv_full_884377.tsv : detailed information on each of the 884,377 UHGV genome sequences
 - votus_full_171338.tsv : detailed information on each of the 171338 species level viral clusters
 
+(in preparation) cluster info 
+
 **- genomes/** nucleotide sequences for different subsets of the database
 
 - uhgv_hq+_212886.fna.gz : all genomes with >90% completeness 
@@ -54,28 +58,23 @@ For additional details, please refer to our manuscript: (in preparation).
 - votus_hq+_58864.fna.gz : representative genomes for vOTUs with >=1 genome w/ >90% completeness
 - votus_mq+_102355.fna.gz : representative genomes for vOTUs with >=1 genome w/ >50% completeness
 - votus_full_171338.fna.gz : representative genomes for vOTUs with >=1 genome w/ >50% completeness or >10Kb
- 
+
+**- genes/**
+
+(in preparation) will include GFF file for each species level representative 
+
 **- host_prediction/**
 
-
-
-<b>High quality MAGs (N=24345)</b>   
-download from your browser: [download link](https://bit.ly/HGM_hq_24345_fna)  
-download via wget: `wget http://bit.ly/HGM_hq_24345_fna -O HGM_v1.0_hq_24345_fna.tar.bz2`  
-
-* High quality MAGs meet the following criterea:
-	*  \>=90% estimated completeness
-	*  <=5% estimated contamination
-	*  <=500 contigs
-	*  \>=5kb average contig length
-	*  \>=10kb contig N50
-	*  \>=5x read depth over >=90% of contigs
-
-<b>High and medium quality MAGs (N=60664)</b>   
-download from your browser: [download link](https://bit.ly/HGM_all_60664_fna)  
-download via wget: `wget http://bit.ly/HGM_all_60664_fna -O HGM_v1.0_all_60664_fna.tar.bz2` 
+- crispr_spacers.fna : 5,318,089 CRISPR spacers from UHGG (3,143,456), NCBI (1,568,807), and Hadza genomes (605,826)
+- host_genomes_info.tsv : GTDB r207 taxonomy for genomes from the UHGG (286,387), NCBI (123,500), and Hadza genomes (54,779)
+- host_assignment_crispr.tsv : detailed information for host prediction with CRISPR spacers
+- host_assignment_kmers.tsv : detailed information for host prediction with PHIST kmer matching
 
 
 ## Code to compare new viruses to the UHGV
 
+(in preparation)
+
 ## Code to perform assembly-free detection of UHGV viral taxa
+
+(in preparation)
