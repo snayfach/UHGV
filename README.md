@@ -1,12 +1,6 @@
 # Unified Human Gut Virome Catalog (UHGV)
 
-Catalog of human gut viruses integrated from 12 databases
-
-(Manuscript in preparation)
-
-## Data availability
-
-The entire resource is freely available at our HTTP site: https://portal.nersc.gov/cfs/m342/UHGV/
+Catalog of human gut virus genomes integrated from 12 databases. The entire resource is freely available at: https://portal.nersc.gov/UHGV
 
 ## Methods
 
