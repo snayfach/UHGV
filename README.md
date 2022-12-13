@@ -36,28 +36,29 @@ For additional details, please refer to our manuscript: (in preparation).
 
 ## The following files are available for download
 
-
 **- metadata/**
 
-- uhgv_full_884377.tsv : detailed information on each of the 884,377 UHGV genome sequences
-- votus_full_171338.tsv : detailed information on each of the 171338 species level viral clusters
+- uhgv_full_metadata.tsv : detailed information on each of the 884,377 UHGV genome sequences
+- votus_full_metadata.tsv : detailed information on each of the 171,338 species level viral clusters
 
-(in preparation) cluster info 
+**- genome_catalogs/**
 
-**- genomes/** nucleotide sequences for different subsets of the database
+- uhgv_full.[fna|faa].gz : sequences for all genomes >10kb or >50% completeness 
+- uhgv_mq_plus.[fna|faa].gz : sequences for all genomes with >50% completeness 
+- uhgv_hq_plus.[fna|faa].gz : sequences for all genomes with >90% completeness 
+- votus_full.[fna|faa].gz : sequences for for vOTU representatives with >50% completeness 
+- votus_mq_plus.[fna|faa].gz : sequences for for vOTU representatives with >50% completeness 
+- votus_hq_plus.[fna|faa].gz : sequences for vOTU representatives with >90% completeness 
 
-- uhgv_hq+_212886.fna.gz : all genomes with >90% completeness 
-- uhgv_mq+_434701.fna.gz : all genomes with >50% completeness  
-- uhgv_full_884377.fna.gz : all genomes with >50% completeness or >10Kb
-- votus_hq+_58864.fna.gz : representative genomes for vOTUs with >=1 genome w/ >90% completeness
-- votus_mq+_102355.fna.gz : representative genomes for vOTUs with >=1 genome w/ >50% completeness
-- votus_full_171338.fna.gz : representative genomes for vOTUs with >=1 genome w/ >50% completeness or >10Kb
+**- votu_representatives/**
 
-**- genes/**
+- [genome_id].fna : DNA sequence FASTA file of the genome assembly of the species representative
+- [genome_id].faa : protein sequence FASTA file of the species representative
+- [genome_id].gff : genome GFF file with various sequence annotations
+- [genome_id]_emapper.tsv : eggNOG-mapper annotations of the protein coding sequences
+- [genome_id]_annotations.tsv : tab-delimited file containg diverse protein coding annotations (PHROG, Pfam, UniRef90, eggNOG-mapper, PhANNs, KEGG)
 
-(in preparation) will include GFF file for each species level representative 
-
-**- host_prediction/**
+**- host_predictions/**
 
 - crispr_spacers.fna : 5,318,089 CRISPR spacers from UHGG (3,143,456), NCBI (1,568,807), and Hadza genomes (605,826)
 - host_genomes_info.tsv : GTDB r207 taxonomy for genomes from the UHGG (286,387), NCBI (123,500), and Hadza genomes (54,779)
@@ -65,10 +66,10 @@ For additional details, please refer to our manuscript: (in preparation).
 - host_assignment_kmers.tsv : detailed information for host prediction with PHIST kmer matching
 
 
-## Code to compare new viruses to the UHGV
+## Code: rapidly assign new viruses to taxonomic groups from the UHGV
 
 (in preparation)
 
-## Code to perform assembly-free detection of UHGV viral taxa
+## Code: assembly-free metagenome detection of viral taxa from the UHGV
 
 (in preparation)
