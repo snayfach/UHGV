@@ -68,7 +68,15 @@ For additional details, please refer to our manuscript: (in preparation).
 
 ## Code: rapidly assign new viruses to taxonomic groups from the UHGV
 
-(in preparation)
+Please see: https://github.com/snayfach/UHGV-taxonomic-classifier
+
+Use cases:
+
+- Determine novelty: does my viral genome represent a novel species? genus? family?
+- Ecological analysis: compare viral phylogenetic groups across samples
+- Comparative genomes: retrieve other viral genomes from the same phylogenetic group
+- Infer host and lifestyle: impute characteristics of the virus based on it's phylogenetic group
+- Update the UHGV: cluster unclassified viral genomes into de novo vOTUs
 
 ## Code: assembly-free metagenome detection of viral taxa from the UHGV
 
