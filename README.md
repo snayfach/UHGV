@@ -36,6 +36,13 @@ For additional details, please refer to our manuscript: (in preparation).
 
 ## The following files are available for download
 
+Minimal recommended datasets to get started:
+
+- genome_catalogs/votus_mq_plus.[fna|faa].gz : representative genomes for species-level vOTU with >50% completeness 
+- metadata/votus_full_metadata.tsv : detailed information for all species level vOTUs
+
+All available files:
+
 **- metadata/**
 
 - uhgv_full_metadata.tsv : detailed information on each of the 884,377 UHGV genome sequences
@@ -46,7 +53,7 @@ For additional details, please refer to our manuscript: (in preparation).
 - uhgv_full.[fna|faa].gz : sequences for all genomes >10kb or >50% completeness 
 - uhgv_mq_plus.[fna|faa].gz : sequences for all genomes with >50% completeness 
 - uhgv_hq_plus.[fna|faa].gz : sequences for all genomes with >90% completeness 
-- votus_full.[fna|faa].gz : sequences for for vOTU representatives with >50% completeness 
+- votus_full.[fna|faa].gz : sequences for for vOTU representatives >10kb or >50% completeness
 - votus_mq_plus.[fna|faa].gz : sequences for for vOTU representatives with >50% completeness 
 - votus_hq_plus.[fna|faa].gz : sequences for vOTU representatives with >90% completeness 
 
@@ -64,6 +71,14 @@ For additional details, please refer to our manuscript: (in preparation).
 - host_genomes_info.tsv : GTDB r207 taxonomy for genomes from the UHGG (286,387), NCBI (123,500), and Hadza genomes (54,779)
 - host_assignment_crispr.tsv : detailed information for host prediction with CRISPR spacers
 - host_assignment_kmers.tsv : detailed information for host prediction with PHIST kmer matching
+
+**- read_mapping/**
+
+- metagenomes_prok_vir_counts_matrix.tsv.gz : mapping statistics for viruses and bacteria across bulk metagenomes 
+- viromes_prok_vir_counts_matrix.tsv.gz : mapping statistics for viruses and bacteria across viral-enriched metagenomes 
+- study_sample_metadata.xlsx : information on bulk metagenomes and viral-enriched metagenomes  
+- viral_bowtie2_index : 
+- bacterial_bowtie2_index : 
 
 
 ## Code: rapidly assign new viruses to taxonomic groups from the UHGV
