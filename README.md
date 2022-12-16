@@ -1,10 +1,8 @@
 # Unified Human Gut Virome Catalog (UHGV)
 
-Catalog of human gut virus genomes integrated from 12 databases.
+The UHGV is a comprehensive genomic resource viruses from the human microbiome. Genomes were derived from [12 independent data sources](#data-sources) and annotated using a [uniform bioinformatics pipeline](#bioinformatics-pipeline):
 
-![Workflow Figure](https://user-images.githubusercontent.com/XXX/XXX.png)
-
-[Data workflow for contructing the UHGV viral resource](#bioinformatics-pipeline)
+<img src="data_workflow.png" width="900">
 
 
 ## Table of contents
