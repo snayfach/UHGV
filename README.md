@@ -7,15 +7,18 @@ The UHGV is a comprehensive genomic resource of viruses from the human microbiom
 
 ## Table of contents
 1. [Methods](#methods)
-	* [Data sources](#data-sources)
-	* [Bioinformatics pipeline](#bioinformatics-pipeline)
+   * [Data sources](#data-sources)
+   * [Bioinformatics pipeline](#bioinformatics-pipeline)
 2. [Data availability](#data-availability)
-	* [Recommended files](#recommended-files)
-	* [All available files](#all-available-files)
+   * [Recommended files](#recommended-files)
+   * [All available files](#all-available-files)
 3. [Code availability](#code-availability) 
-   * [Python toolkit](#python-toolkit)
+   * [Phylogenetic placement](#phylogenetic-placement)
    * [Read mapping](#read-mapping)
-   * [Phanta](#phanta)
+      * [Using Bowtie2](#bowtie2)
+      * [Using Phanta](#phanta)
+   * [Genome visualization](#genome-visualization)
+      
 
 ## Methods
 
@@ -78,7 +81,7 @@ The entire resource is freely available at: https://portal.nersc.gov/UHGV
    - votus_mq_plus.[fna|faa].gz : sequences for for vOTU representatives with >50% completeness 
    - votus_hq_plus.[fna|faa].gz : sequences for vOTU representatives with >90% completeness 
 
-- votu_representatives/
+- votu_reps/
 
    - [genome_id].fna : DNA sequence FASTA file of the genome assembly of the species representative
    - [genome_id].faa : protein sequence FASTA file of the species representative
@@ -103,23 +106,38 @@ The entire resource is freely available at: https://portal.nersc.gov/UHGV
 
 ## Code availability
 
-### Python toolkit
+### Phylogenetic placement
 
 Available at https://github.com/snayfach/UHGV-toolkit
 
-Use cases:
+Specific cases:
 
-- Determining novelty: does my viral genome represent a novel species? genus? family?
+- Determine novelty of new genome: does my viral genome represent a novel species? genus? family?
 - Ecological analysis: compare viral phylogenetic groups across samples
 - Comparative genomics: retrieve other viral genomes from the same phylogenetic group
-- Infering host and lifestyle: impute characteristics of the virus based on it's phylogenetic group
-- Updating the UHGV: cluster unclassified viral genomes into de novo vOTUs
+- Infer host and lifestyle: impute characteristics of the virus based on it's phylogenetic group
+- Update the UHGV: cluster unclassified viral genomes into de novo vOTUs
 
 ### Read-mapping 
 
-(in preparation)
-
-### Phanta
+#### Bowtie2
 
 (in preparation)
+
+#### Phanta
+
+Phanta uses Kraken2 to efficiently quantity the presence of viruses and prokyotes
+(in preparation)
+
+#### Genome visualization
+
+Species level genomes can be visualized using [Geneious](https://www.geneious.com/) or other tools that accept GFF3 format.
+
+Example:
+* Identify a species of interest: UHGV-0014815
+* Download a GFF file for species of interest: https://portal.nersc.gov/UHGV/votu_reps/UHGV-001/UHGV-0014815/UHGV-0014815.gff)
+* Import GFF
+* Menu > Sequence > Circularize
+
+
 
