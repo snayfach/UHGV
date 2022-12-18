@@ -136,7 +136,7 @@ Species level genomes can be visualized using [Geneious](https://www.geneious.co
 Example:
 * Identify a species of interest: UHGV-0014815
 * Download a GFF file for species of interest: https://portal.nersc.gov/UHGV/votu_reps/UHGV-001/UHGV-0014815/UHGV-0014815.gff)
-* Import GFF
+* Geneious > Import GFF
 * Menu > Sequence > Circularize
 
 
