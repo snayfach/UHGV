@@ -129,7 +129,7 @@ Use cases:
 Phanta uses Kraken2 to efficiently quantity the presence of viruses and prokyotes
 (in preparation)
 
-#### Genome visualization
+### Genome visualization
 
 Species level genomes can be visualized using [Geneious](https://www.geneious.com/) or other tools that accept GFF3 format.
 
