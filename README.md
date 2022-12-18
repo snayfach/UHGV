@@ -110,7 +110,7 @@ The entire resource is freely available at: https://portal.nersc.gov/UHGV
 
 Available at https://github.com/snayfach/UHGV-toolkit
 
-Specific cases:
+Use cases:
 
 - Determine novelty of new genome: does my viral genome represent a novel species? genus? family?
 - Ecological analysis: compare viral phylogenetic groups across samples
