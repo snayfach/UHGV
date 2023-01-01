@@ -57,7 +57,7 @@ Sequences from these studies were combined and run through the following bioinfo
 - [eggNOG-mapper](https://github.com/eggnogdb/eggnog-mapper), [PHROGs](https://phrogs.lmge.uca.fr/), [KOfam](https://www.genome.jp/ftp/db/kofam/), [Pfam](http://pfam.xfam.org/), [UniRef_90](https://ftp.uniprot.org/pub/databases/uniprot/current_release/uniref/uniref90/), [PADLOC](https://github.com/padlocbio/padloc), and the [AcrCatalog](http://acrcatalog.pythonanywhere.com/) were used for phage gene functional annotation
 - [PhaNNs](https://github.com/Adrian-Cantu/PhANNs) were used to infer phage structural genes
 - [DGRscan](https://github.com/YuzhenYe/DGRscan) was used to identify diversity generating retroelements on viruses containing reverse transcriptases
-- [Bowtie2](https://github.com/BenLangmead/bowtie2) was used to align short reads from whole-metagenomes and viral-enriched metagenomes against the UHGV and database of prokaryotic genomes. [CoverM](https://github.com/wwood/CoverM) was used to estimate breadth of coverage and we applied a 50% threshold for classifing virus presence-absence
+- [Bowtie2](https://github.com/BenLangmead/bowtie2) was used to align short reads from 1798 whole-metagenomes and 673 viral-enriched metagenomes against the UHGV and database of prokaryotic genomes. [ViromeQC](https://github.com/SegataLab/viromeqc) was used to select human gut viromes. [CoverM](https://github.com/wwood/CoverM) was used to estimate breadth of coverage and we applied a 50% threshold for classifing virus presence-absence
 
 For additional details, please refer to our manuscript: (in preparation).
 
