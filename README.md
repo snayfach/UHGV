@@ -18,6 +18,7 @@ The UHGV is a comprehensive genomic resource of viruses from the human microbiom
       * [Using Bowtie2](#bowtie2)
       * [Using Phanta](#phanta)
    * [Genome visualization](#genome-visualization)
+4. [Keeping the UHGV up-to-date](#updating-the-uhgv)
       
 
 ## Methods
@@ -113,7 +114,7 @@ The entire resource is freely available at: https://portal.nersc.gov/UHGV
 
 ### Phylogenetic placement
 
-Available at https://github.com/snayfach/UHGV-toolkit
+Available at https://github.com/snayfach/classiPhi
 
 Use cases:
 
@@ -145,4 +146,16 @@ Example:
 * Menu > Sequence > Circularize
 
 
+## Updating the UHGV
 
+The human gut virome harbors immense diversity that may not be fully captured by the UHGV, particularly below the genus rank, or for understudied human populations.
+
+Please email snayfach@gmail.com if you'd like to include your sequences in the next version of the data resource. Please provide the following:
+- FASTA file of predicted viruses
+- INDSC accession numbers (SRA/ENA/DDBJ) corresponding to sequencing reads used to assemble viruses
+- Tool used for bioinformatic virus prediction
+- Whether the sample was derived from bulk or viral metagenome
+- Brief description of the study
+- Publication DOI
+
+If your sequences are unpublished, you can update the UHGV using [classiPhi](https://github.com/snayfach/ClassiPhi). The pipeline will compare your viruses against the UHGV, classify them to their appropriate rank, and cluster unclassified viruses into **de novo** viral clusters.
