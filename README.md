@@ -18,7 +18,7 @@ The UHGV is a comprehensive genomic resource of viruses from the human microbiom
       * [Using Bowtie2](#bowtie2)
       * [Using Phanta](#phanta)
    * [Genome visualization](#genome-visualization)
-4. [Keeping the UHGV up-to-date](#updating-the-uhgv)
+4. [Updating the UHGV](#updating-the-uhgv)
       
 
 ## Methods
