@@ -43,10 +43,11 @@ We constructed the UHGV by integrating gut virome collections from a number of r
 ### Bioinformatics pipeline
 
 Sequences from these studies were combined and run through the following bioinformatics pipeline:
-- [geNomad](https://portal.nersc.gov/genomad/) was used to confirm a viral origin and to excise provirues from bacterial chromosomes (as necessary)
+- [geNomad](https://portal.nersc.gov/genomad/), [viralVerify](https://github.com/ablab/viralVerify), and [CheckV](https://bitbucket.org/berkeleylab/checkv) were used to remove sequences from cellular organisms and plasmids, as necessary
 - [CheckV](https://bitbucket.org/berkeleylab/checkv) was used to trim remaining bacterial DNA from virus ends, estimate completeness, and identify closed genomes. Sequences >10Kb or >50% complete were retained and classified as either complete, high-quality (>90% complete), medium-quality (50-90% complete), or low-quality (<50% complete)
 - [BLASTN](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastDocs&DOC_TYPE=Download) was used to calculate the average nucleotide identity between viruses using a [custom script](https://bitbucket.org/berkeleylab/checkv/src/master/scripts/anicalc.py)
-- Viral genomes were clustered into viral operational taxonomic units (vOTUs) at approximately the species, subgenus, genus, subfamily, and family-level ranks using a combination of genome-wide ANI for the species level and genome-wide proteomic similarity for higher ranks
+- [DIAMOND](https://github.com/bbuchfink/diamond/) was used to blast proteins between viral genomes. Pairwise alignments were used to calculate a genome-wide protein-based similarity metric. 
+- [MCL](http://micans.org) was used to cluster genomes into viral operational taxonomic units (vOTUs) at approximately the species, subgenus, genus, subfamily, and family-level ranks using a combination of genome-wide ANI for the species level and genome-wide proteomic similarity for higher ranks
 - A representative genome was selected for each species level vOTU based on: presence of terminal repeats, completeness, and ratio of viral:non-viral genes
 - [ICTV](https://ictv.global/vmr) taxonomy was inferred using a best-genome-hit approach to phage genomes from [INPHARED](https://github.com/RyanCook94/inphared) and using taxon-specific marker genes from [geNomad](https://portal.nersc.gov/genomad/) 
 - [CRISPR](https://github.com/snayfach/MGV/tree/master/crispr_spacers) spacer matching and kmer matching with [PHIST](https://github.com/refresh-bio/PHIST) were used to connect viruses and host genomes. A voting procedure was used to then identify the host taxon at the lowest taxonomic rank comprising at least 70% of connections
