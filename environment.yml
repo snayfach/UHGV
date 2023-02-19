@@ -1,0 +1,12 @@
+name: uhgv-class
+channels:
+  - conda-forge
+  - bioconda
+  - anaconda
+  - defaults
+dependencies:
+  - blast
+  - diamond
+  - prodigal-gv
+  - biopython
+  - psutil
