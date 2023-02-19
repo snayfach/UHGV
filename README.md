@@ -115,7 +115,7 @@ The entire resource is freely available at: https://portal.nersc.gov/UHGV
 
 ### Phylogenetic placement
 
-View a detailed (README)[CLASSIFY.md] for download and usage instructions
+View a detailed [README](CLASSIFY.md) for download and usage instructions
 
 Use cases:
 
