@@ -68,7 +68,7 @@ class DatabaseDownloader:
 
 def fetch_arguments(parser):
     parser.set_defaults(func=main)
-    parser.set_defaults(program="download_database")
+    parser.set_defaults(program="download")
     parser.add_argument(
         "destination",
         type=str,
@@ -89,7 +89,7 @@ def main(args):
     if not os.path.exists(args["destination"]):
         os.makedirs(args["destination"])
 
-    logger.info(f"\nUHGV-tools v{uhgv.__version__}: download_database")
+    logger.info(f"\nUHGV-tools v{uhgv.__version__}: download")
 
     logger.info("[1/5] Checking latest version of database...")
     db = DatabaseDownloader(args["destination"])

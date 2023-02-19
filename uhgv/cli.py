@@ -13,20 +13,20 @@ https://github.com/snayfach/UHGV-toolkit
 usage: uhgv-tools <command> [options]
 
 programs:
-    download_database   download the UHGV genome database required for classify module
+    download   download the UHGV genome database required for classify module
     classify            classify new genomes into phylogenetic groups from the UHGV""",
     )
 
     subparsers = parser.add_subparsers(help=argparse.SUPPRESS)
 
     download_database_parser = subparsers.add_parser(
-        "download_database",
+        "download",
         usage=argparse.SUPPRESS,
         formatter_class=argparse.RawDescriptionHelpFormatter,
         description="""Download the database needed for classify module
-\nusage: uhgv-tools download_database <destination>""",
+\nusage: uhgv-tools download <destination>""",
     )
-    uhgv.download_database.fetch_arguments(download_database_parser)
+    uhgv.download.fetch_arguments(download_database_parser)
 
     classify_parser = subparsers.add_parser(
         "classify",
@@ -41,7 +41,7 @@ programs:
         parser.print_help()
         sys.exit(0)
     elif len(sys.argv) == 2:
-        if sys.argv[1] == "download_database":
+        if sys.argv[1] == "download":
             download_database_parser.print_help()
             sys.exit(0)
         elif sys.argv[1] == "classify":

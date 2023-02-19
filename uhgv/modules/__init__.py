@@ -1,5 +1,5 @@
 from uhgv.modules import (
-    download_database,
+    download,
     classify,
 )
 
