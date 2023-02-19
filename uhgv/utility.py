@@ -290,9 +290,9 @@ def ani_calculator(inpath, outpath):
             alns = prune_alns(alns)
             if len(alns) > 0:
                 qname, tname = alns[0]["qname"], alns[0]["tname"]
-                ani = sum(a["len"] * a["pid"] for a in alns) / sum(
+                ani = round(sum(a["len"] * a["pid"] for a in alns) / sum(
                     a["len"] for a in alns
-                )
+                ), 2)
                 qcov, tcov = compute_cov(alns)
                 norm_score = float(qcov) * ani / 100
                 row = [qname, tname, ani, qcov, tcov, norm_score]

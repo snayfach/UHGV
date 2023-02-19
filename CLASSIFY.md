@@ -70,19 +70,24 @@ There are two main output files:
 
 Here are field definitions and example values for `classify_summary.tsv`:
 
-- genome : 
-- classification : 
-- classification\_method : 
-- ani\_reference : 
-- ani\_identity : 
-- ani\_query_af : 
-- ani\_target_af : 
-- ani\_taxonomy : 
-- aai\_reference : 
-- aai\_shared_genes : 
-- aai\_identity : 
-- aai\_score : 
-- aai\_taxonomy : 
+| Field      | Description | Example |
+| ----------- | ----------- |----------- |
+| genome_id | user genome identifier | 0008\_k141_99927 |
+| genome_length | length in bp | 96989 |
+| genome\_num_genes | count of CDS | 106 |
+| taxon_id | UHGV taxon identifier | vSUBGEN-22354 |
+| class_method | nucleotide or protein based classification | protein |
+| class_rank | lowest classified rank | subgenus |
+| ani_reference | nearest reference based on ANI | UHGV-0030436 |
+| ani_identity | nucleotide identity | 93.65 |
+| ani\_query_af | % of query covered | 86.6 |
+| ani\_target_af | % of target covered | 83.58 |
+| ani_taxonomy | taxonomy of reference genome | vFAM-00050;vSUBFAM-00057;vGENUS-00180;vSUBGEN-22354;vOTU-000988 |
+| aai_reference | nearest reference based on AAI | UHGV-0030436 |
+| aai\_shared_genes | number of proteins aligned | 93 |
+| aai_identity | amino acid identity | 89.33 |
+| aai_score | normalized, cumulative bitscore | 82.57 |
+| aai_taxonomy | taxonomy of reference genome | vFAM-00050;vSUBFAM-00057;vGENUS-00180;vSUBGEN-22354;vOTU-000988 |
 
 Here field definitions and example values for `taxon_info.tsv`:
 

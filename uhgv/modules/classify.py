@@ -464,14 +464,14 @@ class ViralClassifier:
                     r["ani_taxonomy"] = r["ani_taxonomy"].rsplit(";Unclassified", 1)[0]
                 r["taxon_lineage"] = r["ani_taxonomy"]
                 r["taxon_id"] = r["taxon_lineage"].split(";")[-1]
-                r["class_method"] = "ANI"
+                r["class_method"] = "nucleotide"
                 r["class_rank"] = "species"
 
             elif r["aai_reference"] is not None:
                 r["taxon_lineage"] = assign_aai_taxonomy(
                     r["aai_taxonomy"], r["aai_score"]
                 )
-                r["class_method"] = "AAI"
+                r["class_method"] = "protein"
                 if r["taxon_lineage"]:
                     rank_dict = {
                         "vFAM": "family",
@@ -556,7 +556,7 @@ def main(args):
     logger.info("[2/10] Reading database sequences")
     vclass.load_refdb()
 
-    logger.info("[3/10] Estimating ANI with blastn")
+    logger.info("[3/10] Calculating nucleotide similarity with blastn")
     vclass.blastani()
 
     logger.info("[4/10] Identifying genes using prodigal-gv")
