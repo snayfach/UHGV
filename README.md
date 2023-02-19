@@ -2,7 +2,7 @@
 
 The UHGV is a comprehensive genomic resource of viruses from the human microbiome. Genomes were derived from [12 independent data sources](#data-sources) and annotated using a [uniform bioinformatics pipeline](#bioinformatics-pipeline):
 
-<img src="data_workflow.png" width="900">
+<img src="img/data_workflow.png" width="900">
 
 
 ## Table of contents
@@ -69,7 +69,7 @@ The entire resource is freely available at: https://portal.nersc.gov/UHGV
 
 #### Recommended files:
 
-- [Representative genomes with >50% completeness](https://portal.nersc.gov/UHGV/genome_catalogs/votus_mq_plus.fna.gz)
+- [High-quality representative genomes](https://portal.nersc.gov/UHGV/genome_catalogs/votus_mq_plus.fna.gz)
 - [Metadata for all species level vOTUs](https://portal.nersc.gov/UHGV/metadata/votus_full_metadata.tsv)
 
 #### All available files:
@@ -115,15 +115,16 @@ The entire resource is freely available at: https://portal.nersc.gov/UHGV
 
 ### Phylogenetic placement
 
-Available at https://github.com/snayfach/classiPhi
+View a detailed (README)[CLASSIFY.md] for download and usage instructions
 
 Use cases:
 
-- Determine novelty of new genome: does my viral genome represent a novel species? genus? family?
+- Assign a taxonomic label to a newly sequence human gut virus
+- Determine novelty: does my viral genome represent a novel species? genus? family?
 - Ecological analysis: compare viral phylogenetic groups across samples
 - Comparative genomics: retrieve other viral genomes from the same phylogenetic group
 - Infer host and lifestyle: impute characteristics of the virus based on it's phylogenetic group
-- Update the UHGV: cluster unclassified viral genomes into de novo vOTUs
+- Update the UHGV: add unclassified genomes to an updated viral database
 
 ### Read-mapping 
 

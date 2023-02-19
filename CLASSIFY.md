@@ -1,14 +1,11 @@
-# Taxonomic classification of environmental phages and viruses from novel lineages
+# Taxonomic classification of human gut viruses
 
-Viral database: 
-- Currently the database is focused on viruses from the human gut
+The code and database described here will allow you to obtain a taxonomic label for your gut virus based on the UHGV taxonomy. This is useful to determine novelty relative to database, identify characteristics of the nearest viral group, and allow you to identify other phylogenetically related viruses in the database.
 
-Use cases:
-- Determine novelty: does my viral genome represent a novel species? genus? family?
-- Ecological analysis: compare viral phylogenetic groups across samples
-- Comparative genomes: retrieve other viral genomes from the same phylogenetic group
-- Infer host and lifestyle: impute characteristics of the virus based on it's phylogenetic group
-- Update the UHGV: cluster unclassified viral genomes into de novo vOTUs
+<img src="img/classify_workflow.png" width="900">
+
+## How it works
+
 
 ## Installation
 
@@ -40,24 +37,51 @@ View command line usage for `classify` module:
 >  --continue  Continue where program left off<br>
 >  --quiet     Suppress logging messages<br>
 
-Download a test dataset:  
-`wget XXXX`
+## Example usage
 
-Classify contigs from the test dataset:  
-`uhgv-tools classify -i test_sequences.fna -o output -d uhgv-db-v0.1/`
+Download the test dataset consisting of 5 phage genomes from (Nishijima et al.)[https://www.nature.com/articles/s41467-022-32832-w].  
 
-Main results are found in `output/classify_summary.tsv`:
+If you've cloned the repo, these are found in `UHGV/example/viral_sequences.fna`
+
+Otherwise, download using wget
+`wget https://raw.githubusercontent.com/snayfach/UHGV/main/example/viral_sequences.fna?token=GHSAT0AAAAAAB5YRYUZ2FVVNDY5NIHRTC44Y7SNMYA -O viral_sequences.fna`
+
+Classify sequences, replacing `</path/to/uhgv-db>` as appropriate:  
+`uhgv-tools classify -i viral_sequences.fna -o output -d </path/to/uhgv-db> -t 10`
+
+Expected logging messages:
+
+> UHGV-tools v0.0.1: classify
+> [1/10] Reading input sequences
+> [2/10] Reading database sequences
+> [3/10] Estimating ANI with blastn
+> [4/10] Identifying genes using prodigal-gv
+> [5/10] Performing self alignment
+> [6/10] Aligning proteins to database
+> [7/10] Calculating amino acid similarity scores
+> [8/10] Finding top database hits
+> [9/10] Performing phylogenetic assignment
+> [10/10] Writing output file(s)
+
+There are two main output files:
+
+- `output/classify_summary.tsv`: information related to classification 
+- `output/taxon_info.tsv`: details about the classified taxa (ex: lifestyle, genome size, host)
+
+Here are field definitions for `classify_summary.tsv`:
 
 - genome : 
 - classification : 
-- classification_method : 
-- ani_reference : 
-- ani_identity : 
-- ani_query_af : 
-- ani_target_af : 
-- ani_taxonomy : 
-- aai_reference : 
-- aai_shared_genes : 
-- aai_identity : 
-- aai_score : 
-- aai_taxonomy : 
+- classification\_method : 
+- ani\_reference : 
+- ani\_identity : 
+- ani\_query_af : 
+- ani\_target_af : 
+- ani\_taxonomy : 
+- aai\_reference : 
+- aai\_shared_genes : 
+- aai\_identity : 
+- aai\_score : 
+- aai\_taxonomy : 
+
+Here are field definitions for `taxon_info.tsv`:

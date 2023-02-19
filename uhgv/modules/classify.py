@@ -227,7 +227,7 @@ class ViralClassifier:
             r["taxonomy"] = r["taxonomy"].replace("NULL", "Unclassified")
             self.ref_genomes[r["genome_id"]] = r
         self.ref_clusters = {}
-        path = os.path.join(self.paths["dbdir"], "cluster_attributes.tsv")
+        path = os.path.join(self.paths["dbdir"], "viral_cluster_info.tsv")
         for r in csv.DictReader(open(path), delimiter="\t"):
             self.ref_clusters[r["id"]] = r
             del self.ref_clusters[r["id"]]["id"]
