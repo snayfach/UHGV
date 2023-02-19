@@ -18,6 +18,15 @@ View available modules:
 Download and unpack the latest database:   
 `uhgv-tools download_database`
 
+> UHGV-tools: download<br>
+> [1/5] Checking latest version of database...<br>
+> [2/5] Downloading 'uhgv-db'...<br>
+> [3/5] Extracting 'uhgv-db'...<br>
+> [4/5] Building BLASTN database...<br>
+> [5/5] Building DIAMOND database...<br>
+> Run time: 121.6 seconds<br>
+> Peak mem: 1.58 GB<br>
+
 View command line usage for `classify` module:  
 `uhgv-tools classify -h`
 
@@ -36,17 +45,11 @@ View command line usage for `classify` module:
 
 ## Example usage
 
-Download the test dataset consisting of 5 phage genomes from [Nishijima et al.](https://www.nature.com/articles/s41467-022-32832-w)  
-
-If you've cloned the repo, these are found in `UHGV/example/viral_sequences.fna`
-
-Otherwise, download using wget:  
+Download a test dataset of 5 phages from [Nishijima et al.](https://www.nature.com/articles/s41467-022-32832-w)   using wget:  
 `wget https://raw.githubusercontent.com/snayfach/UHGV/main/example/viral_sequences.fna?token=GHSAT0AAAAAAB5YRYUZ2FVVNDY5NIHRTC44Y7SNMYA -O viral_sequences.fna`
 
 Classify sequences, replacing `</path/to/uhgv-db>` as appropriate:   
 `uhgv-tools classify -i viral_sequences.fna -o output -d </path/to/uhgv-db> -t 10`
-
-Expected logging messages:
 
 > UHGV-tools v0.0.1: classify<br>
 > [1/10] Reading input sequences<br>
@@ -65,7 +68,7 @@ There are two main output files:
 - `output/classify_summary.tsv`: information related to classification 
 - `output/taxon_info.tsv`: details about the classified taxa (ex: lifestyle, genome size, host)
 
-Here are field definitions for `classify_summary.tsv`:
+Here are field definitions and example values for `classify_summary.tsv`:
 
 - genome : 
 - classification : 
@@ -81,4 +84,18 @@ Here are field definitions for `classify_summary.tsv`:
 - aai\_score : 
 - aai\_taxonomy : 
 
-Here are field definitions for `taxon_info.tsv`:
+Here field definitions and example values for `taxon_info.tsv`:
+
+| Field      | Description | Example |
+| ----------- | ----------- |----------- |
+| genome_id | user genome identifier | 0008\_k141_99927 |
+| taxon_id | UHGV taxon identifier | vSUBGEN-22354 |
+| taxon\_lineage | UHGV taxon lineage | vFAM-00050;vSUBFAM-00057;vGENUS-00180;vSUBGEN-22354 |
+| host\_lineage | Consensus GTDB host lineage | d\_\_Bacteria;p\_\_Bacteroidota;c\_\_Bacteroidia;o\_\_Bacteroidales;f\_\_Bacteroidaceae;g\_\_Prevotella (100.0) |
+| ictv\_lineage | Consensus ICTV taxon lineage | r\_\_Duplodnaviria;k\_\_Heunggongvirae;p\_\_Uroviricota;c\_\_Caudoviricetes;o\_\_Crassvirales;f\_\_Beta-crassviridae (100.0) |
+| lifestyle | Consensus virus lifestyle | virulent (100.0) |
+| genome\_length_median | median genome length of viruses in lineage | 100566.0 |
+| genome\_length_iqr | interquartile range of genome length | 100566.0 - 100566.0 |
+
+                 
+        

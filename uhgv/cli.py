@@ -8,13 +8,13 @@ def cli():
         usage=argparse.SUPPRESS,
         formatter_class=argparse.RawDescriptionHelpFormatter,
         description=f"""UHGV-toolkit v{uhgv.__version__}
-https://github.com/snayfach/UHGV-toolkit
+https://github.com/snayfach/UHGV
 
 usage: uhgv-tools <command> [options]
 
 programs:
     download   download the UHGV genome database required for classify module
-    classify            classify new genomes into phylogenetic groups from the UHGV""",
+    classify   classify new genomes into phylogenetic groups from the UHGV""",
     )
 
     subparsers = parser.add_subparsers(help=argparse.SUPPRESS)

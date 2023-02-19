@@ -168,8 +168,8 @@ class ViralClassifier:
         self.paths["classify_summary"] = os.path.join(
             self.paths["outdir"], "classify_summary.tsv"
         )
-        self.paths["taxon_properties"] = os.path.join(
-            self.paths["outdir"], "taxon_properties.tsv"
+        self.paths["taxon_info"] = os.path.join(
+            self.paths["outdir"], "taxon_info.tsv"
         )
 
     def perform_checks(self):
@@ -182,7 +182,7 @@ class ViralClassifier:
             sys.exit("\nError: database directory not found: '%s'" % args["dbdir"])
         files = [
             "genomes.fna",
-            "genomes.nal",
+            #"genomes.nal",
             "proteins.faa",
             "proteins.dmnd",
             "genome_taxonomy.tsv",
@@ -229,8 +229,8 @@ class ViralClassifier:
         self.ref_clusters = {}
         path = os.path.join(self.paths["dbdir"], "viral_cluster_info.tsv")
         for r in csv.DictReader(open(path), delimiter="\t"):
-            self.ref_clusters[r["id"]] = r
-            del self.ref_clusters[r["id"]]["id"]
+            self.ref_clusters[r["taxon_id"]] = r
+            del self.ref_clusters[r["taxon_id"]]["taxon_id"]
 
     def blastani(self):
         if os.path.exists(self.paths["blastani"]):
@@ -521,16 +521,16 @@ class ViralClassifier:
             "lifestyle",
             "genome_length_median",
             "genome_length_iqr",
-            "ncbi_genomes",
-            "ictv_genomes",
-            "uhgv_genomes",
-            "uhgv_complete",
-            "uhgv_high_quality",
-            "uhgv_medium_quality",
-            "uhgv_best_quality",
-            "ncbi_list",
+#            "ncbi_genomes",
+#            "ictv_genomes",
+#            "uhgv_genomes",
+#            "uhgv_complete",
+#            "uhgv_high_quality",
+#            "uhgv_medium_quality",
+#            "uhgv_best_quality",
+#            "ncbi_list",
         ]
-        with open(self.paths["taxon_properties"], "w") as out:
+        with open(self.paths["taxon_info"], "w") as out:
             out.write("\t".join(fields) + "\n")
             for query in self.queries.values():
                 rec = [query["record"][f] if f in query["record"] else "NA" for f in fields]
