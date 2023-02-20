@@ -67,9 +67,17 @@ For additional details, please refer to our manuscript: (in preparation).
 
 The entire resource is freely available at: https://portal.nersc.gov/UHGV
 
-#### Recommended files:
+We provide genomes for three quality tiers: 
+- full: >50% complete or >10Kbp, high-confidence & uncertain viral predictions
+- mq_plus: >50% complete, high-confidence viral predictions
+- hq_plus : >90% complete, high-confidence viral predictions 
 
-- [High-quality representative genomes](https://portal.nersc.gov/UHGV/genome_catalogs/votus_mq_plus.fna.gz)
+Additionally, we provide data for:
+- vOTU representatives
+- All genomes in each vOTU
+
+For most analyses, we recommend using these files:
+- [High-quality representative genomes](https://portal.nersc.gov/UHGV/genome_catalogs/votus_hq_plus.fna.gz)
 - [Metadata for all species level vOTUs](https://portal.nersc.gov/UHGV/metadata/votus_full_metadata.tsv)
 
 #### All available files:
