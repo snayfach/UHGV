@@ -13,7 +13,7 @@ The UHGV is a comprehensive genomic resource of viruses from the human microbiom
    * [Recommended files](#recommended-files)
    * [All available files](#all-available-files)
 3. [Code availability](#code-availability) 
-   * [Phylogenetic placement](#phylogenetic-placement)
+   * [Taxonomic classification](#taxonomic-classification)
    * [Read mapping](#read-mapping)
       * [Using Bowtie2](#bowtie2)
       * [Using Phanta](#phanta)
@@ -53,7 +53,6 @@ Sequences from these studies were combined and run through the following bioinfo
 - [CRISPR](https://github.com/snayfach/MGV/tree/master/crispr_spacers) spacer matching and kmer matching with [PHIST](https://github.com/refresh-bio/PHIST) were used to connect viruses and host genomes. A voting procedure was used to then identify the host taxon at the lowest taxonomic rank comprising at least 70% of connections
 - [HumGut](https://arken.nmbu.no/~larssn/humgut/) genomes and MAGs from a [Hadza](https://www.biorxiv.org/content/10.1101/2022.03.30.486478v2) hunter gatherer population were used for host prediction and read mapping (HumGut contains all genomes from the [UHGG v1.0](http://ftp.ebi.ac.uk/pub/databases/metagenomics/mgnify_genomes/human-gut/v1.0/) combined with NCBI genomes detected in gut metagenomes)
 - [GTDB r207](https://gtdb.ecogenomic.org/) and [GTDB-tk](https://github.com/Ecogenomics/GTDBTk) were used to assign taxonomy to all prokaryotic genomes
-- [Placeholder] was used to estimate the host range of each virus based on the average phylogenetic distance between connected host genomes
 - [BACPHLIP](https://github.com/adamhockenberry/bacphlip) was used for prediction of phage lifestyle together with integrases from the [PHROG ](https://phrogs.lmge.uca.fr/) database and prophage information from geNomad. Note: BACPHLIP tends to over classify viral genome fragments as lytic
 - [Prodigal-gv](https://github.com/apcamargo/prodigal-gv) was used to identify protein coding genes and alternative genetic codes
 - [eggNOG-mapper](https://github.com/eggnogdb/eggnog-mapper), [PHROGs](https://phrogs.lmge.uca.fr/), [KOfam](https://www.genome.jp/ftp/db/kofam/), [Pfam](http://pfam.xfam.org/), [UniRef_90](https://ftp.uniprot.org/pub/databases/uniprot/current_release/uniref/uniref90/), [PADLOC](https://github.com/padlocbio/padloc), and the [AcrCatalog](http://acrcatalog.pythonanywhere.com/) were used for phage gene functional annotation
@@ -69,15 +68,15 @@ The entire resource is freely available at: https://portal.nersc.gov/UHGV
 
 #### Recommended files:
 
-- [High-quality representative genomes](https://portal.nersc.gov/UHGV/genome_catalogs/votus_mq_plus.fna.gz)
-- [Metadata for all species level vOTUs](https://portal.nersc.gov/UHGV/metadata/votus_full_metadata.tsv)
+- [High-quality genomes representating 57,514 vOTUs](https://portal.nersc.gov/UHGV/genome_catalogs/votus_hq_plus.fna.gz)
+- [Metadata for all species-level vOTUs](https://portal.nersc.gov/UHGV/metadata/votus_full_metadata.tsv)
 
 #### All available files:
 
 - metadata/
 
-   - uhgv_full_metadata.tsv : detailed information on each of the 884,377 UHGV genome sequences
-   - votus_full_metadata.tsv : detailed information on each of the 171,338 species level viral clusters
+   - uhgv_full_metadata.tsv : detailed information on each of the 874,104 UHGV genome sequences
+   - votus_full_metadata.tsv : detailed information on each of the 168,570 species level viral clusters
 
 - genome_catalogs/
 
@@ -108,56 +107,30 @@ The entire resource is freely available at: https://portal.nersc.gov/UHGV
    - metagenomes_prok_vir_counts_matrix.tsv.gz : mapping statistics for viruses and bacteria across bulk metagenomes 
    - viromes_prok_vir_counts_matrix.tsv.gz : mapping statistics for viruses and bacteria across viral-enriched metagenomes 
    - study_sample_metadata.xlsx : information on bulk metagenomes and viral-enriched metagenomes  
-   - viral_bowtie2_index : 
-   - bacterial_bowtie2_index : 
 
 ## Code availability
 
-### Phylogenetic placement
+### Taxonomic classification
 
-View a detailed [README](CLASSIFY.md) for download and usage instructions
-
-Use cases:
-
-- Assign a taxonomic label to a newly sequence human gut virus
-- Determine novelty: does my viral genome represent a novel species? genus? family?
-- Ecological analysis: compare viral phylogenetic groups across samples
-- Comparative genomics: retrieve other viral genomes from the same phylogenetic group
-- Infer host and lifestyle: impute characteristics of the virus based on it's phylogenetic group
-- Update the UHGV: add unclassified genomes to an updated viral database
+- Code to assign viral genomes to taxonomic groups from the UHGV
+- View the [README](CLASSIFY.md) for download and usage instructions.
 
 ### Read-mapping 
 
 #### Bowtie2
 
-(in preparation)
+- (in preparation)
 
 #### Phanta
 
-Phanta uses Kraken2 to efficiently quantity the presence of viruses and prokyotes
-(in preparation)
+- Phanta uses Kraken2 to efficiently quantity the presence of viruses and prokyotes
+- (in preparation)
 
 ### Genome visualization
 
-Species level genomes can be visualized using [Geneious](https://www.geneious.com/) or other tools that accept GFF3 format.
-
-Example:
-* Identify a species of interest: UHGV-0014815
-* Download a GFF file for species of interest: https://portal.nersc.gov/UHGV/votu_reps/UHGV-001/UHGV-0014815/UHGV-0014815.gff)
-* Geneious > Import GFF
-* Menu > Sequence > Circularize
-
-
-## Updating the UHGV
-
-The human gut virome harbors immense diversity that may not be fully captured by the UHGV, particularly below the genus rank, or for understudied human populations.
-
-Please email snayfach@gmail.com if you'd like to include your sequences in the next version of the data resource. Please provide the following:
-- FASTA file of predicted viruses
-- INDSC accession numbers (SRA/ENA/DDBJ) corresponding to sequencing reads used to assemble viruses
-- Tool used for bioinformatic virus prediction
-- Whether the sample was derived from bulk or viral metagenome
-- Brief description of the study
-- Publication DOI
-
-If your sequences are unpublished, you can update the UHGV using [classiPhi](https://github.com/snayfach/ClassiPhi). The pipeline will compare your viruses against the UHGV, classify them to their appropriate rank, and cluster unclassified viruses into **de novo** viral clusters.
+- Species level genomes can be visualized using [Geneious](https://www.geneious.com/) or other tools that accept GFF3 format.
+- Example:
+   * Identify a species of interest: UHGV-0014815
+   * Download a GFF file for species of interest: https://portal.nersc.gov/UHGV/votu_reps/UHGV-001/UHGV-0014815/UHGV-0014815.gff)
+   * Geneious > Import GFF
+   * Menu > Sequence > Circularize
