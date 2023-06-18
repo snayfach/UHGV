@@ -13,7 +13,7 @@ The UHGV is a comprehensive genomic resource of viruses from the human microbiom
    * [Recommended files](#recommended-files)
    * [All available files](#all-available-files)
 3. [Code availability](#code-availability) 
-   * [Taxonomic classification](#taxonomic-classification)
+   * [Taxonomic classification](CLASSIFY.md)
    * [Read mapping](#read-mapping)
       * [Using Bowtie2](#bowtie2)
       * [Using Phanta](#phanta)
