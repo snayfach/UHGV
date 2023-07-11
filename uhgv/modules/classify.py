@@ -571,14 +571,14 @@ def main(args):
     logger.info("[7/10] Calculating amino acid similarity scores")
     vclass.blastaai()
 
-    # logger.info("[8/10] Finding top database hits")
-    # vclass.find_top_hits()
+    logger.info("[8/10] Finding top database hits")
+    vclass.find_top_hits()
 
-    # logger.info("[9/10] Performing phylogenetic assignment")
-    # vclass.assign_taxonomy()
+    logger.info("[9/10] Performing phylogenetic assignment")
+    vclass.assign_taxonomy()
 
-    # logger.info("[10/10] Writing output file(s)")
-    # vclass.write_results()
+    logger.info("[10/10] Writing output file(s)")
+    vclass.write_results()
 
     logger.info("\nSuccess!")
     logger.info("Elapsed time (s): %s" % round(time.time() - prog_start, 2))
