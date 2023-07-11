@@ -368,9 +368,9 @@ class ViralClassifier:
         cmd += f"--db {self.paths['dbdir']}/proteins.dmnd "
         cmd += "--outfmt 6 "
         cmd += f"&> {self.paths['diamond']}.log"
-        p = sp.Popen(cmd, shell=True)
-        return_code = p.wait()
-        if return_code != 0:
+        p = sp.Popen(cmd, shell=True, stdout=sp.PIPE, stderr=sp.PIPE)
+        out, err = p.communicate()
+        if p.returncode != 0:
             msg = "\nError: DIAMOND database searched failed to run\n"
             msg += f"See log for details: {self.paths['diamond']}.log"
             sys.exit(msg)
