@@ -7,7 +7,7 @@ The code and database described here will allow you to obtain a taxonomic label 
 ## Installation
 
 Install program using git and pip (add `--user` if you don't have root access):  
-`pip install git+https://github.com/snayfach/UHGV-toolkit.git`
+`pip install git+https://github.com/snayfach/UHGV.git`
 
 Install external dependencies using conda:  
 `conda install -c bioconda prodigal-gv diamond blast -y`
@@ -16,7 +16,7 @@ View available modules:
 `uhgv-tools -h`
 
 Download and unpack the latest database:   
-`uhgv-tools download_database`
+`uhgv-tools download .`
 
 > UHGV-tools: download<br>
 > [1/5] Checking latest version of database...<br>
@@ -45,8 +45,8 @@ View command line usage for `classify` module:
 
 ## Example usage
 
-Download a test dataset of 5 phages from [Nishijima et al.](https://www.nature.com/articles/s41467-022-32832-w)   using wget:  
-`wget https://raw.githubusercontent.com/snayfach/UHGV/main/example/viral_sequences.fna?token=GHSAT0AAAAAAB5YRYUZ2FVVNDY5NIHRTC44Y7SNMYA -O viral_sequences.fna`
+Download a test dataset of 5 phages from [Nishijima et al.](https://www.nature.com/articles/s41467-022-32832-w) using wget:  
+`wget https://raw.githubusercontent.com/snayfach/UHGV/main/example/viral_sequences.fna -O viral_sequences.fna`
 
 Classify sequences, replacing `</path/to/uhgv-db>` as appropriate:   
 `uhgv-tools classify -i viral_sequences.fna -o output -d </path/to/uhgv-db> -t 10`
