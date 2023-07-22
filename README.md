@@ -12,11 +12,9 @@ The UHGV is a comprehensive genomic resource of viruses from the human microbiom
 2. [Data availability](#data-availability)
    * [Recommended files](#recommended-files)
    * [All available files](#all-available-files)
-3. [Code availability](#code-availability) 
-   * [Taxonomic classification](CLASSIFY.md)
-   * [Read mapping](#read-mapping)
-      * [Using Bowtie2](#bowtie2)
-      * [Using Phanta](#phanta)
+3. [Bioinformatics tools that use the UHGV](#code-availability) 
+   * [Contig-level taxonomic classification](CLASSIFY.md)
+   * [Read-level abundance profiling](#read-level-abundance-profiling-with-phanta)
    * [Genome visualization](#genome-visualization)
       
 
@@ -50,14 +48,14 @@ Sequences from these studies were combined and run through the following bioinfo
 - A representative genome was selected for each species level vOTU based on: presence of terminal repeats, completeness, and ratio of viral:non-viral genes
 - [ICTV](https://ictv.global/vmr) taxonomy was inferred using a best-genome-hit approach to phage genomes from [INPHARED](https://github.com/RyanCook94/inphared) and using taxon-specific marker genes from [geNomad](https://portal.nersc.gov/genomad/) 
 - [CRISPR](https://github.com/snayfach/MGV/tree/master/crispr_spacers) spacer matching and kmer matching with [PHIST](https://github.com/refresh-bio/PHIST) were used to connect viruses and host genomes. A voting procedure was used to then identify the host taxon at the lowest taxonomic rank comprising at least 70% of connections
-- [HumGut](https://arken.nmbu.no/~larssn/humgut/) genomes and MAGs from a [Hadza](https://www.biorxiv.org/content/10.1101/2022.03.30.486478v2) hunter gatherer population were used for host prediction and read mapping (HumGut contains all genomes from the [UHGG v1.0](http://ftp.ebi.ac.uk/pub/databases/metagenomics/mgnify_genomes/human-gut/v1.0/) combined with NCBI genomes detected in gut metagenomes)
+- [HumGut](https://arken.nmbu.no/~larssn/humgut/) genomes and MAGs from a [Hadza](https://www.biorxiv.org/content/10.1101/2022.03.30.486478v2) hunter-gatherer population were used for host prediction and read mapping (HumGut contains all genomes from the [UHGG v1.0](http://ftp.ebi.ac.uk/pub/databases/metagenomics/mgnify_genomes/human-gut/v1.0/) combined with NCBI genomes detected in gut metagenomes)
 - [GTDB r207](https://gtdb.ecogenomic.org/) and [GTDB-tk](https://github.com/Ecogenomics/GTDBTk) were used to assign taxonomy to all prokaryotic genomes
 - [BACPHLIP](https://github.com/adamhockenberry/bacphlip) was used for prediction of phage lifestyle together with integrases from the [PHROG ](https://phrogs.lmge.uca.fr/) database and prophage information from geNomad. Note: BACPHLIP tends to over classify viral genome fragments as lytic
-- [Prodigal-gv](https://github.com/apcamargo/prodigal-gv) was used to identify protein coding genes and alternative genetic codes
+- [Prodigal-gv](https://github.com/apcamargo/prodigal-gv) was used to identify protein-coding genes and alternative genetic codes
 - [eggNOG-mapper](https://github.com/eggnogdb/eggnog-mapper), [PHROGs](https://phrogs.lmge.uca.fr/), [KOfam](https://www.genome.jp/ftp/db/kofam/), [Pfam](http://pfam.xfam.org/), [UniRef_90](https://ftp.uniprot.org/pub/databases/uniprot/current_release/uniref/uniref90/), [PADLOC](https://github.com/padlocbio/padloc), and the [AcrCatalog](http://acrcatalog.pythonanywhere.com/) were used for phage gene functional annotation
 - [PhaNNs](https://github.com/Adrian-Cantu/PhANNs) were used to infer phage structural genes
-- [DGRscan](https://github.com/YuzhenYe/DGRscan) was used to identify diversity generating retroelements on viruses containing reverse transcriptases
-- [Bowtie2](https://github.com/BenLangmead/bowtie2) was used to align short reads from 1798 whole-metagenomes and 673 viral-enriched metagenomes against the UHGV and database of prokaryotic genomes. [ViromeQC](https://github.com/SegataLab/viromeqc) was used to select human gut viromes. [CoverM](https://github.com/wwood/CoverM) was used to estimate breadth of coverage and we applied a 50% threshold for classifing virus presence-absence
+- [DGRscan](https://github.com/YuzhenYe/DGRscan) was used to identify diversity-generating retroelements on viruses containing reverse transcriptases
+- [Bowtie2](https://github.com/BenLangmead/bowtie2) was used to align short reads from 1798 whole-metagenomes and 673 viral-enriched metagenomes against the UHGV and database of prokaryotic genomes. [ViromeQC](https://github.com/SegataLab/viromeqc) was used to select human gut viromes. [CoverM](https://github.com/wwood/CoverM) was used to estimate the breadth of coverage and we applied a 50% threshold for classifying virus presence-absence
 
 For additional details, please refer to our manuscript: (in preparation).
 
@@ -74,11 +72,12 @@ Additionally, we provide data for:
 - vOTU representatives
 - All genomes in each vOTU
 
+### Recommended files
 For most analyses, we recommend using these files:
 - [High-quality representative genomes](https://portal.nersc.gov/UHGV/genome_catalogs/votus_hq_plus.fna.gz)
 - [Metadata for all species level vOTUs](https://portal.nersc.gov/UHGV/metadata/votus_full_metadata.tsv)
 
-#### All available files:
+### All available files:
 
 - metadata/
 
@@ -99,8 +98,8 @@ For most analyses, we recommend using these files:
    - [genome_id].fna : DNA sequence FASTA file of the genome assembly of the species representative
    - [genome_id].faa : protein sequence FASTA file of the species representative
    - [genome_id].gff : genome GFF file with various sequence annotations
-   - [genome_id]_emapper.tsv : eggNOG-mapper annotations of the protein coding sequences
-   - [genome_id]_annotations.tsv : tab-delimited file containg diverse protein coding annotations (PHROG, Pfam, UniRef90, eggNOG-mapper, PhANNs, KEGG)
+   - [genome_id]_emapper.tsv : eggNOG-mapper annotations of the protein-coding sequences
+   - [genome_id]_annotations.tsv : tab-delimited file containing diverse protein-coding annotations (PHROG, Pfam, UniRef90, eggNOG-mapper, PhANNs, KEGG)
 
 - host_predictions/ 
 
@@ -117,21 +116,19 @@ For most analyses, we recommend using these files:
 
 ## Code availability
 
-### Taxonomic classification
+### Contig-level taxonomic classification with the UHGV toolkit
 
 - Code to assign viral genomes to taxonomic groups from the UHGV
 - View the [README](CLASSIFY.md) for download and usage instructions.
 
-### Read-mapping 
+### Read-level abundance profiling with Phanta
 
-#### Bowtie2
+- Phanta uses Kraken2 to efficiently quantity the presence of viruses and prokaryotes
+- Follow the instructions to install the software at the [Phanta Github page](https://github.com/bhattlab/phanta#quick-start)
+- Download one of the UHGV databases for Phanta
+  - Viral genomes = UHGV HQ; Prokaryotic genomes = HumGut [download](http://ab_phanta.os.scg.stanford.edu/Phanta_DBs/humgut_uhgv_hqplus_v1.tar.gz)
 
-- (in preparation)
 
-#### Phanta
-
-- Phanta uses Kraken2 to efficiently quantity the presence of viruses and prokyotes
-- (in preparation)
 
 ### Genome visualization
 
