@@ -126,8 +126,8 @@ For most analyses, we recommend using these files:
 - Phanta (https://github.com/bhattlab/phanta) is a fast and accurate virus-inclusive profiler of human gut metagenomes based on the classification of short reads with Kraken2. 
 - Follow the instructions to install the software at the [Phanta Github page](https://github.com/bhattlab/phanta#quick-start)
 - Download a custom-built UHGV database for Phanta:
-  - HQ+ UHGV [(download)](https://ab_phanta.os.scg.stanford.edu/Phanta_DBs/humgut_uhgv_hqplus_v1.tar.gz)
-  - MQ+ UHGV [(download)](https://ab_phanta.os.scg.stanford.edu/Phanta_DBs/humgut_uhgv_mqplus_v1.tar.gz)
+  - HQ+ UHGV [(download)](http://ab_phanta.os.scg.stanford.edu/Phanta_DBs/humgut_uhgv_hqplus_v1.tar.gz)
+  - MQ+ UHGV [(download)](http://ab_phanta.os.scg.stanford.edu/Phanta_DBs/humgut_uhgv_mqplus_v1.tar.gz)
   - These databases are similar to Phanta's default database as described in Phanta's manuscript but replacing the viral portion of Phanta’s default DB with UHGV.
 - Phanta can be executed based on the instructions on its GitHub page.
 
