@@ -83,6 +83,8 @@ For most analyses, we recommend using these files:
 
    - uhgv_full_metadata.tsv : detailed information on each of the 874,104 UHGV genome sequences
    - votus_full_metadata.tsv : detailed information on each of the 168,570 species level viral clusters
+   - votus_metadata_extended.tsv: additional information on each vOTU
+   - host_metadata.tsv : taxonomy and other info for prokaroytic genomes (completeness, contamination, n50)
 
 - genome_catalogs/
 
@@ -108,11 +110,21 @@ For most analyses, we recommend using these files:
    - host_assignment_crispr.tsv : detailed information for host prediction with CRISPR spacers
    - host_assignment_kmers.tsv : detailed information for host prediction with PHIST kmer matching
 
+- annotations/
+   - functional annotation matrices: vOTUs x functions (PHROG, Pfam, KOfam, PADLOC)
+
 - read_mapping/ 
 
-   - metagenomes_prok_vir_counts_matrix.tsv.gz : mapping statistics for viruses and bacteria across bulk metagenomes 
-   - viromes_prok_vir_counts_matrix.tsv.gz : mapping statistics for viruses and bacteria across viral-enriched metagenomes 
-   - study_sample_metadata.xlsx : information on bulk metagenomes and viral-enriched metagenomes  
+   - metagenomes_prok_vir_counts_matrix.tsv.gz : coverM mapping statistics for viruses and bacteria across bulk metagenomes 
+   - viromes_prok_vir_counts_matrix.tsv.gz : coverM mapping statistics for viruses and bacteria across viral-enriched metagenomes 
+   - sample_metadata.tsv: human sample metadata (country, lifestyle, age, gender, bmi, study)
+   - fastq_summary.tsv: information on sequencing reads (sra, bulk/virome metagenome, viromeQC enrichment, read counts)
+   - study_metadata.tsv: information on individual studies for read mapping
+   
+   - bowtie2_indexes/
+     - prokaryote_reps.fna.gz: FASTA of prokaryotic genomes used for read mapping
+     - prokaryote_metadata_table.tsv.gz: prok genome metadata
+     - prokaryote_reps.1.bt*: bowtie2 indexes
 
 ## Code availability
 
