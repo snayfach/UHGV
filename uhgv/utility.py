@@ -287,16 +287,17 @@ def ani_calculator(inpath, outpath):
         fields = ["query", "reference", "ani", "qcov", "tcov", "norm_score"]
         out.write("\t".join(fields) + "\n")
         for alns in yield_alignment_blocks(open(inpath)):
-            alns = prune_alns(alns)
-            if len(alns) > 0:
-                qname, tname = alns[0]["qname"], alns[0]["tname"]
-                ani = round(sum(a["len"] * a["pid"] for a in alns) / sum(
-                    a["len"] for a in alns
-                ), 2)
-                qcov, tcov = compute_cov(alns)
-                norm_score = float(qcov) * ani / 100
-                row = [qname, tname, ani, qcov, tcov, norm_score]
-                out.write("\t".join([str(_) for _ in row]) + "\n")
+            if alns is not None:
+                alns = prune_alns(alns)
+                if len(alns) > 0:
+                    qname, tname = alns[0]["qname"], alns[0]["tname"]
+                    ani = round(sum(a["len"] * a["pid"] for a in alns) / sum(
+                        a["len"] for a in alns
+                    ), 2)
+                    qcov, tcov = compute_cov(alns)
+                    norm_score = float(qcov) * ani / 100
+                    row = [qname, tname, ani, qcov, tcov, norm_score]
+                    out.write("\t".join([str(_) for _ in row]) + "\n")
 
 
 ##
