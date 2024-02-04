@@ -53,9 +53,9 @@ def fetch_arguments(parser):
         "-t",
         dest="threads",
         type=int,
-        default=1,
+        default=os.cpu_count(),
         metavar="INT",
-        help="Number of threads to run program with (1)",
+        help=f"Number of threads to run program with ({os.cpu_count()})",
     )
     parser.add_argument(
         "-p",

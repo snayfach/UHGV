@@ -55,7 +55,6 @@ class DatabaseDownloader:
         cmd = "diamond makedb "
         cmd += f"--in {self.dbdir}/proteins.faa "
         cmd += f"--db {self.dbdir}/proteins "
-        cmd += f"--threads 1 "
         cmd += "1> /dev/null "
         cmd += f"2> {self.dbdir}/proteins.log "
         p = sp.Popen(cmd, shell=True)
