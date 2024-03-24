@@ -39,6 +39,10 @@ def max_mem_usage():
 import shutil
 
 
+def mean(values):
+    return sum(values) / len(values)
+
+
 def split_dmnd(inpath, outdir, num_splits, ext=""):
 
     if not os.path.exists(outdir):
@@ -187,7 +191,7 @@ def parallel(function, arguments_list, threads):
 
 import Bio.SeqIO, time, gzip
 from operator import itemgetter
-import numpy as np, argparse
+import argparse
 import subprocess as sp
 
 
@@ -304,7 +308,7 @@ def ani_calculator(inpath, outpath):
 ## code to calculate AAI
 ##
 
-import os, numpy as np, csv
+import os, csv
 from collections import defaultdict
 
 
@@ -353,7 +357,7 @@ def aai_main(inpath, outpath, selfpath):
             target_to_hits = split_hits(hits)
             for tname, thits in target_to_hits.items():
                 bhits = best_blast_hits(thits)
-                aai = np.mean([float(_[2]) for _ in bhits])
+                aai = mean([float(_[2]) for _ in bhits])
                 score = sum([float(_[-1]) for _ in bhits])
                 norm = 100 * score / selfaai[qname]
                 row = [

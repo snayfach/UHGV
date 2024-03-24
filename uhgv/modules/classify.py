@@ -9,7 +9,6 @@ import Bio.SeqIO
 import shutil
 import time
 import gzip
-import numpy as np
 import subprocess as sp
 from uhgv import utility
 from collections import OrderedDict

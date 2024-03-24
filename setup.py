@@ -11,7 +11,6 @@ setup(
     install_requires=[
         "biopython",
         "importlib-metadata>=0.12; python_version<'3.8'",
-        "numpy>=1.5",
         "psutil"
     ],
     python_requires=">=3.6",
