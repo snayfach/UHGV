@@ -6,6 +6,8 @@ import logging
 import sys
 import resource
 import platform
+import os, csv
+from collections import defaultdict
 
 
 def get_logger(quiet):
@@ -308,13 +310,12 @@ def ani_calculator(inpath, outpath):
 ## code to calculate AAI
 ##
 
-import os, csv
-from collections import defaultdict
-
-
 def yield_diamond_hits(diamond):
     with open(diamond) as f:
-        hits = [next(f).split()]
+        try :
+            hits = [next(f).split()]
+        except StopIteration:
+            return
         for l in f:
             r = l.split()
             query = r[0].rsplit("_", 1)[0]
