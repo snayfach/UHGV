@@ -2,12 +2,23 @@
 ## misc functions
 ##
 
+import csv
+import gzip
 import logging
-import sys
-import resource
+import multiprocessing as mp
+import os
 import platform
-import os, csv
+import resource
+import shutil
+import signal
+import subprocess as sp
+import sys
+import time
 from collections import defaultdict
+from operator import itemgetter
+
+import Bio.SeqIO
+import psutil
 
 
 def get_logger(quiet):
@@ -38,8 +49,6 @@ def max_mem_usage():
 ## misc utilities
 ##
 
-import shutil
-
 
 def mean(values):
     return sum(values) / len(values)
@@ -49,7 +58,7 @@ def split_dmnd(inpath, outdir, num_splits, ext=""):
 
     if not os.path.exists(outdir):
         os.makedirs(outdir)
-    
+
     total_size = os.stat(inpath).st_size
     split_size = int(total_size / num_splits)
 
@@ -148,12 +157,6 @@ def parallel_prodigal(tmpdir, input, output, threads, cleanup):
 ## code for parallelization
 ##
 
-import multiprocessing as mp
-import signal
-import subprocess as sp
-import psutil
-
-
 def init_worker():
     signal.signal(signal.SIGINT, signal.SIG_IGN)
 
@@ -186,15 +189,11 @@ def parallel(function, arguments_list, threads):
     except KeyboardInterrupt:
         pid = os.getpid()
         terminate_tree(pid)
-        
+
+
 ##
 ## code to calculate ANI
 ##
-
-import Bio.SeqIO, time, gzip
-from operator import itemgetter
-import argparse
-import subprocess as sp
 
 
 def parse_blast(handle):
