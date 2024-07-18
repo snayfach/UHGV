@@ -470,8 +470,8 @@ class ViralClassifier:
                 r["taxon_lineage"] = assign_aai_taxonomy(
                     r["aai_taxonomy"], r["aai_score"]
                 )
-                r["class_method"] = "protein"
                 if r["taxon_lineage"]:
+                    r["class_method"] = "protein"
                     rank_dict = {
                         "vFAM": "family",
                         "vSUBFAM": "subfamily",
