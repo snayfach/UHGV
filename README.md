@@ -75,14 +75,14 @@ Additionally, we provide data for:
 ### Recommended files
 For most analyses, we recommend using these files:
 - [High-quality representative genomes](https://portal.nersc.gov/UHGV/genome_catalogs/votus_hq_plus.fna.gz)
-- [Metadata for all species level vOTUs](https://portal.nersc.gov/UHGV/metadata/votus_full_metadata.tsv)
+- [Metadata for all species level vOTUs](https://portal.nersc.gov/UHGV/metadata/votus_metadata.tsv)
 
 ### All available files:
 
 - metadata/
 
-   - uhgv_full_metadata.tsv : detailed information on each of the 874,104 UHGV genome sequences
-   - votus_full_metadata.tsv : detailed information on each of the 168,570 species level viral clusters
+   - uhgv_metadata.tsv : detailed information on each of the 874,104 UHGV genome sequences
+   - votus_metadata.tsv : detailed information on each of the 168,570 species level viral clusters
    - votus_metadata_extended.tsv: additional information on each vOTU
    - host_metadata.tsv : taxonomy and other info for prokaroytic genomes (completeness, contamination, n50)
 
@@ -102,6 +102,7 @@ For most analyses, we recommend using these files:
    - [genome_id].gff : genome GFF file with various sequence annotations
    - [genome_id]_emapper.tsv : eggNOG-mapper annotations of the protein-coding sequences
    - [genome_id]_annotations.tsv : tab-delimited file containing diverse protein-coding annotations (PHROG, Pfam, UniRef90, eggNOG-mapper, PhANNs, KEGG)
+   - **Note: these files are only available for genomes >50% completeness and with confident virus prediction**
 
 - host_predictions/ 
 
