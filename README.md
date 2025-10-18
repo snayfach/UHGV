@@ -1,41 +1,44 @@
 # Unified Human Gut Virome Catalog (UHGV)
 
-The UHGV is a comprehensive genomic resource of viruses from the human microbiome. Genomes were derived from [12 independent data sources](#data-sources) and annotated using a [uniform bioinformatics pipeline](#bioinformatics-pipeline):
+The **UHGV** is a comprehensive genomic resource of viruses from the human gut microbiome. Genomes were derived from [12 independent data sources](#data-sources) and annotated using a [uniform bioinformatics pipeline](#bioinformatics-pipeline):
+
 
 <img src="img/data_workflow.png" width="900">
 
 
-## Table of contents
-1. [Methods](#methods)
-   * [Data sources](#data-sources)
-   * [Bioinformatics pipeline](#bioinformatics-pipeline)
-2. [Data availability](#data-availability)
-   * [Recommended files](#recommended-files)
-   * [All available files](#all-available-files)
-3. [Bioinformatics tools that use the UHGV](#code-availability) 
-   * [Contig-level taxonomic classification](CLASSIFY.md)
-   * [Read-level abundance profiling](#read-level-abundance-profiling-with-phanta)
-   * [Genome visualization](#genome-visualization)
+## Table of Contents
+1. [Methods](#methods)  
+   - [Data sources](#data-sources)  
+   - [Bioinformatics pipeline](#bioinformatics-pipeline)  
+2. [Data Availability](#data-availability)  
+   - [Recommended files](#recommended-files)  
+   - [All available files](#all-available-files)  
+3. [Tools Using the UHGV](#code-availability)  
+   - [Genome Taxonomy Classification](#genome-taxonomy-classification)  
+   - [Read-Level Abundance Profiling](#read-level-abundance-profiling)  
+   - [Genome Visualization](#genome-visualization)  
+4. [Citation](#citation)  
       
 
 ## Methods
 
 ### Data sources
 
-We constructed the UHGV by integrating gut virome collections from a number of recent studies: 
+The UHGV integrates gut virome collections from recent studies:
 
-- Metagenomic Gut Virus Compendium (MGV): https://doi.org/10.1038/s41564-021-00928-6
-- Gut Phage Database (GPD): https://doi.org/10.1016/j.cell.2021.01.029
-- Metagenomic Mobile Genetic Elements Database (mMGE): https://doi.org/10.1093/nar/gkaa869
-- IMG Virus Resource v4 (IMG/VR): https://doi.org/10.1093/nar/gkac1037
-- Hadza Hunter Gatherer Phage Catalog (Hadza): https://doi.org/10.1101/2022.03.30.486478
-- Cenote Human Virome Database (CHVD): https://doi.org/10.1073/pnas.2023202118
-- Human Virome Database (HuVirDB): https://doi.org/10.1016/j.chom.2019.08.008
-- Gut Virome Database (GVD): https://doi.org/10.1016/j.chom.2020.08.003
-- Atlas of Infant Gut DNA Virus Diversity (COPSAC): https://doi.org/10.1101/2021.07.02.450849
-- Circular Gut Phages from NCBI (Benler et al.): https://doi.org/10.1186/s40168-021-01017-w
-- Danish Enteric Virome Catalogue (DEVoC): https://doi.org/10.1128/mSystems.00382-21
-- Stability of the human gut virome and effect of gluten-free diet (GFD): https://doi.org/10.1016/j.celrep.2021.109132
+1. [Metagenomic Gut Virus Compendium (MGV)](https://doi.org/10.1038/s41564-021-00928-6)  
+2. [Gut Phage Database (GPD)](https://doi.org/10.1016/j.cell.2021.01.029)  
+3. [Metagenomic Mobile Genetic Elements Database (mMGE)](https://doi.org/10.1093/nar/gkaa869)  
+4. [IMG Virus Resource v4 (IMG/VR)](https://doi.org/10.1093/nar/gkac1037)  
+5. [Hadza Hunter Gatherer Phage Catalog (Hadza)](https://doi.org/10.1101/2022.03.30.486478)  
+6. [Cenote Human Virome Database (CHVD)](https://doi.org/10.1073/pnas.2023202118)  
+7. [Human Virome Database (HuVirDB)](https://doi.org/10.1016/j.chom.2019.08.008)  
+8. [Gut Virome Database (GVD)](https://doi.org/10.1016/j.chom.2020.08.003)  
+9. [Atlas of Infant Gut DNA Virus Diversity (COPSAC)](https://doi.org/10.1101/2021.07.02.450849)  
+10. [Circular Gut Phages from NCBI (Benler et al.)](https://doi.org/10.1186/s40168-021-01017-w)  
+11. [Danish Enteric Virome Catalogue (DEVoC)](https://doi.org/10.1128/mSystems.00382-21)  
+12. [Stability of the human gut virome and effect of gluten-free diet (GFD)](https://doi.org/10.1016/j.celrep.2021.109132)  
+
 
 ### Bioinformatics pipeline
 
@@ -61,95 +64,100 @@ For additional details, please refer to our manuscript: (in preparation).
 
 ## Data availability
 
-The entire resource is freely available at: https://portal.nersc.gov/UHGV
+The UHGV resource is freely available at: [https://portal.nersc.gov/UHGV](https://portal.nersc.gov/UHGV)
 
-We provide genomes for three quality tiers: 
-- Full: >50% complete or >10Kbp, high-confidence & uncertain viral predictions
-- Medium-quality: >50% complete, high-confidence viral predictions
-- High-quality : >90% complete, high-confidence viral predictions 
+We provide genomes at three quality tiers:
 
-Additionally, we provide data for:
-- vOTU representatives
-- All genomes in each vOTU
+| Tier | Criteria |
+|------|----------|
+| Full | >50% complete or >10 Kbp; high-confidence & uncertain viral predictions |
+| Medium-quality | >50% complete; high-confidence viral predictions |
+| High-quality | >90% complete; high-confidence viral predictions |
+
+These data are provided for either vOTU representatives or all genomes in each vOTU.
 
 ### Recommended files
-For most analyses, we recommend using these files:
-- [High-quality representative genomes](https://portal.nersc.gov/UHGV/genome_catalogs/votus_hq_plus.fna.gz)
-- [Metadata for all species level vOTUs](https://portal.nersc.gov/UHGV/metadata/votus_metadata.tsv)
+
+| File | Description | Link |
+|------|-------------|------|
+| `votus_hq_plus.fna.gz` | High-quality representative genomes | [Download](https://portal.nersc.gov/UHGV/genome_catalogs/votus_hq_plus.fna.gz) |
+| `votus_metadata.tsv` | Metadata for all species-level vOTUs | [Download](https://portal.nersc.gov/UHGV/metadata/votus_metadata.tsv) |
+
 
 ### All available files:
 
-- metadata/
+**metadata/**  
+- `uhgv_metadata.tsv`: information for each of the 874,104 UHGV genomes  
+- `votus_metadata.tsv`: information for 168,570 species-level viral clusters  
+- `votus_metadata_extended.tsv`: additional vOTU details  
+- `host_metadata.tsv`: taxonomy, completeness, contamination, N50 for prokaryotic genomes  
 
-   - uhgv_metadata.tsv : detailed information on each of the 874,104 UHGV genome sequences
-   - votus_metadata.tsv : detailed information on each of the 168,570 species level viral clusters
-   - votus_metadata_extended.tsv: additional information on each vOTU
-   - host_metadata.tsv : taxonomy and other info for prokaroytic genomes (completeness, contamination, n50)
+**genome_catalogs/**  
+- `uhgv_full.[fna|faa].gz`: all genomes >10 kb or >50% complete  
+- `uhgv_mq_plus.[fna|faa].gz`: genomes >50% complete  
+- `uhgv_hq_plus.[fna|faa].gz`: genomes >90% complete  
+- `votus_full.[fna|faa].gz`: vOTU representatives >10 kb or >50% complete  
+- `votus_mq_plus.[fna|faa].gz`: vOTU representatives >50% complete  
+- `votus_hq_plus.[fna|faa].gz`: vOTU representatives >90% complete 
 
-- genome_catalogs/
+**votu_reps/**  
+- `[genome_id].fna`: DNA sequence  
+- `[genome_id].faa`: protein sequence  
+- `[genome_id].gff`: genome annotations  
+- `[genome_id]_emapper.tsv`: eggNOG-mapper annotations  
+- `[genome_id]_annotations.tsv`: PHROG, Pfam, UniRef90, eggNOG-mapper, PhANNs, KEGG annotations  
 
-   - uhgv_full.[fna|faa].gz : sequences for all genomes >10kb or >50% completeness 
-   - uhgv_mq_plus.[fna|faa].gz : sequences for all genomes with >50% completeness 
-   - uhgv_hq_plus.[fna|faa].gz : sequences for all genomes with >90% completeness 
-   - votus_full.[fna|faa].gz : sequences for for vOTU representatives >10kb or >50% completeness
-   - votus_mq_plus.[fna|faa].gz : sequences for for vOTU representatives with >50% completeness 
-   - votus_hq_plus.[fna|faa].gz : sequences for vOTU representatives with >90% completeness 
+> Only available for genomes >50% complete with confident virus prediction
 
-- votu_reps/
+**host_predictions/**  
+- `crispr_spacers.fna`: 5,318,089 CRISPR spacers  
+- `host_genomes_info.tsv`: GTDB r207 taxonomy for UHGG, NCBI, Hadza genomes  
+- `host_assignment_crispr.tsv`: host predictions via CRISPR  
+- `host_assignment_kmers.tsv`: host predictions via PHIST  
 
-   - [genome_id].fna : DNA sequence FASTA file of the genome assembly of the species representative
-   - [genome_id].faa : protein sequence FASTA file of the species representative
-   - [genome_id].gff : genome GFF file with various sequence annotations
-   - [genome_id]_emapper.tsv : eggNOG-mapper annotations of the protein-coding sequences
-   - [genome_id]_annotations.tsv : tab-delimited file containing diverse protein-coding annotations (PHROG, Pfam, UniRef90, eggNOG-mapper, PhANNs, KEGG)
-   - **Note: these files are only available for genomes >50% completeness and with confident virus prediction**
+**annotations/**  
+- Functional annotation matrices (vOTUs × functions: PHROG, Pfam, KOfam, PADLOC)
 
-- host_predictions/ 
+**read_mapping/**  
+- `metagenomes_prok_vir_counts_matrix.tsv.gz`: CoverM statistics for bulk metagenomes  
+- `viromes_prok_vir_counts_matrix.tsv.gz`: CoverM statistics for viral-enriched metagenomes  
+- `sample_metadata.tsv`: sample metadata (country, lifestyle, age, gender, BMI, study)  
+- `fastq_summary.tsv`: sequencing reads info  
+- `study_metadata.tsv`: per-study metadata  
 
-   - crispr_spacers.fna : 5,318,089 CRISPR spacers from UHGG (3,143,456), NCBI (1,568,807), and Hadza genomes (605,826)
-   - host_genomes_info.tsv : GTDB r207 taxonomy for genomes from the UHGG (286,387), NCBI (123,500), and Hadza genomes (54,779)
-   - host_assignment_crispr.tsv : detailed information for host prediction with CRISPR spacers
-   - host_assignment_kmers.tsv : detailed information for host prediction with PHIST kmer matching
-
-- annotations/
-   - functional annotation matrices: vOTUs x functions (PHROG, Pfam, KOfam, PADLOC)
-
-- read_mapping/ 
-
-   - metagenomes_prok_vir_counts_matrix.tsv.gz : coverM mapping statistics for viruses and bacteria across bulk metagenomes 
-   - viromes_prok_vir_counts_matrix.tsv.gz : coverM mapping statistics for viruses and bacteria across viral-enriched metagenomes 
-   - sample_metadata.tsv: human sample metadata (country, lifestyle, age, gender, bmi, study)
-   - fastq_summary.tsv: information on sequencing reads (sra, bulk/virome metagenome, viromeQC enrichment, read counts)
-   - study_metadata.tsv: information on individual studies for read mapping
-   
-   - bowtie2_indexes/
-     - prokaryote_reps.fna.gz: FASTA of prokaryotic genomes used for read mapping
-     - prokaryote_metadata_table.tsv.gz: prok genome metadata
-     - prokaryote_reps.1.bt*: bowtie2 indexes
+- **bowtie2_indexes/**  
+  - `prokaryote_reps.fna.gz`: prokaryotic genome FASTA  
+  - `prokaryote_metadata_table.tsv.gz`: prok genome metadata  
+  - `prokaryote_reps.1.bt*`: Bowtie2 indexes 
 
 ## Code availability
 
-### Contig-level taxonomic classification with the UHGV toolkit
+### Genome Taxonomy Classification
+**UHGV-classifier**: command-line tool for classifying genomes using UHGV.  
+- [GitHub & installation](https://github.com/snayfach/UHGV-classifier)  
 
-- Code to assign viral genomes to taxonomic groups from the UHGV
-- View the [README](CLASSIFY.md) for download and usage instructions.
+### Read-level Abundance Profiling
+**Phanta**: virus-inclusive profiler for human gut metagenomes.  
+- [GitHub & installation](https://github.com/bhattlab/phanta#quick-start)  
+- UHGV databases:  
+  - HQ plus: `wget http://ab_phanta.os.scg.stanford.edu/Phanta_DBs/humgut_uhgv_hqplus_v1.tar.gz`  
+  - MQ plus: `wget http://ab_phanta.os.scg.stanford.edu/Phanta_DBs/humgut_uhgv_mqplus_v1.tar.gz`  
+> Databases replace the viral portion of Phanta’s default DB with UHGV sequences.
 
-### Read-level abundance profiling with Phanta
+### Genome Visualization
+- Use [Geneious](https://www.geneious.com/) or any GFF3-compatible tool.  
+- Example workflow for a species (`UHGV-0014815`):  
+  1. Download GFF: `https://portal.nersc.gov/UHGV/votu_reps/UHGV-001/UHGV-0014815/UHGV-0014815.gff`  
+  2. Import into Geneious  
+  3. Menu → Sequence → Circularize  
+> Can also be applied with other GFF3 visualization software.
 
-- Phanta (https://github.com/bhattlab/phanta) is a fast and accurate virus-inclusive profiler of human gut metagenomes based on the classification of short reads with Kraken2. 
-- Follow the instructions to install the software at the [Phanta Github page](https://github.com/bhattlab/phanta#quick-start)
-- Download a custom-built UHGV database for Phanta:
-  - HQ plus: `wget http://ab_phanta.os.scg.stanford.edu/Phanta_DBs/humgut_uhgv_hqplus_v1.tar.gz`
-  - MQ plus: `wget http://ab_phanta.os.scg.stanford.edu/Phanta_DBs/humgut_uhgv_mqplus_v1.tar.gz`
-  - These databases are similar to Phanta's default database as described in Phanta's manuscript but replacing the viral portion of Phanta’s default DB with UHGV.
-- Phanta can be executed based on the instructions on its GitHub page.
+## Citation
 
+If you use the UHGV in your research, please cite both the database and the underlying publication:
 
-### Genome visualization
+**Data resource:**  
+Coming soon
 
-- Species level genomes can be visualized using [Geneious](https://www.geneious.com/) or other tools that accept GFF3 format.
-- Example:
-   * Identify a species of interest: UHGV-0014815
-   * Download a GFF file for species of interest: https://portal.nersc.gov/UHGV/votu_reps/UHGV-001/UHGV-0014815/UHGV-0014815.gff)
-   * Geneious > Import GFF
-   * Menu > Sequence > Circularize
+**Publication:**  
+Coming soon
