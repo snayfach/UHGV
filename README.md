@@ -122,6 +122,7 @@ These data are provided for either vOTU representatives or all genomes in each v
 **read_mapping/**
 - `metagenomes_prok_vir_counts_matrix.tsv.gz`: CoverM statistics for bulk metagenomes
 - `viromes_prok_vir_counts_matrix.tsv.gz`: CoverM statistics for viral-enriched metagenomes
+- `relative_abundance.tsv`: Per-sample relative abundances of viruses and hosts derived from read mapping data
 - `sample_metadata.tsv`: sample metadata (country, lifestyle, age, gender, BMI, study)
 - `fastq_summary.tsv`: sequencing reads info
 - `study_metadata.tsv`: per-study metadata
