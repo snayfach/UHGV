@@ -100,6 +100,7 @@ These data are provided for either vOTU representatives or all genomes in each v
 - `votus_full.[fna|faa].gz`: vOTU representatives >10 kb or >50% complete
 - `votus_mq_plus.[fna|faa].gz`: vOTU representatives >50% complete
 - `votus_hq_plus.[fna|faa].gz`: vOTU representatives >90% complete
+- `prokaryote_reps.fna.gz`: genomic sequences of gut prokaryotes
 
 **votu_reps/**
 - `[genome_id].fna`: DNA sequence
