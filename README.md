@@ -159,8 +159,8 @@ These data are provided for either vOTU representatives or all genomes in each v
 
 If you use the UHGV in your research, please cite both the database and the underlying publication:
 
-**Data resource:**
-Coming soon
+**Data resource:**  
+Nayfach, S., & Camargo, A. (2025). Unified Human Gut Virome (UHGV) (1.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.17402089
 
 **Publication:**
 Coming soon
