@@ -1,24 +1,24 @@
 # Unified Human Gut Virome Catalog (UHGV)
 
-The **UHGV** is a comprehensive genomic resource of viruses from the human gut microbiome. Genomes were derived from [12 independent data sources](#data-sources) and annotated using a [uniform bioinformatics pipeline](#bioinformatics-pipeline):
-
-
-<img src="img/data_workflow.png" width="900">
-
+The **UHGV** is a comprehensive genomic resource of viruses from the human gut microbiome. Genomes were derived from [12 independent data sources](#data-sources) and annotated using a [uniform bioinformatics pipeline](#bioinformatics-pipeline).
 
 ## Table of Contents
-1. [Methods](#methods)
-   - [Data sources](#data-sources)
-   - [Bioinformatics pipeline](#bioinformatics-pipeline)
-2. [Data Availability](#data-availability)
-   - [Recommended files](#recommended-files)
-   - [All available files](#all-available-files)
-3. [Tools Using the UHGV](#code-availability)
-   - [Genome Taxonomy Classification](#genome-taxonomy-classification)
-   - [Read-Level Abundance Profiling](#read-level-abundance-profiling)
-   - [Genome Visualization](#genome-visualization)
-4. [Citation](#citation)
+1. [Code](#code)
+2. [Methods](#methods)
+  - [Data sources](#data-sources)
+  - [Bioinformatics pipeline](#bioinformatics-pipeline)
+3. [Data Availability](#data-availability)
+  - [Recommended files](#recommended-files)
+  - [All available files](#all-available-files)
+4. [Tools Using the UHGV](#code-availability)
+  - [Genome Taxonomy Classification](#genome-taxonomy-classification)
+  - [Read-Level Abundance Profiling](#read-level-abundance-profiling)
+  - [Genome Visualization](#genome-visualization)
+5. [Citation](#citation)
 
+## Code
+
+Scripts and commands used to generate and process UHGV data can be found within [`scripts`](https://github.com/snayfach/UHGV/tree/main/scripts). Jupyter notebooks used for data analysis are in [`notebooks`](https://github.com/snayfach/UHGV/tree/main/notebooks).
 
 ## Methods
 
@@ -39,8 +39,9 @@ The UHGV integrates gut virome collections from recent studies:
 11. [Danish Enteric Virome Catalogue (DEVoC)](https://doi.org/10.1128/mSystems.00382-21)
 12. [Stability of the human gut virome and effect of gluten-free diet (GFD)](https://doi.org/10.1016/j.celrep.2021.109132)
 
-
 ### Bioinformatics pipeline
+
+<center><img src="img/data_workflow.png" width="90%"></center>
 
 Sequences from these studies were combined and run through the following bioinformatics pipeline:
 - [geNomad](https://portal.nersc.gov/genomad/), [viralVerify](https://github.com/ablab/viralVerify), and [CheckV](https://bitbucket.org/berkeleylab/checkv) were used to remove sequences from cellular organisms and plasmids, as necessary
@@ -54,17 +55,21 @@ Sequences from these studies were combined and run through the following bioinfo
 - [HumGut](https://arken.nmbu.no/~larssn/humgut/) genomes and MAGs from a [Hadza](https://www.biorxiv.org/content/10.1101/2022.03.30.486478v2) hunter-gatherer population were used for host prediction and read mapping (HumGut contains all genomes from the [UHGG v1.0](http://ftp.ebi.ac.uk/pub/databases/metagenomics/mgnify_genomes/human-gut/v1.0/) combined with NCBI genomes detected in gut metagenomes)
 - [GTDB r207](https://gtdb.ecogenomic.org/) and [GTDB-tk](https://github.com/Ecogenomics/GTDBTk) were used to assign taxonomy to all prokaryotic genomes
 - [BACPHLIP](https://github.com/adamhockenberry/bacphlip) was used for prediction of phage lifestyle together with integrases from the [PHROG ](https://phrogs.lmge.uca.fr/) database and prophage information from geNomad. Note: BACPHLIP tends to over classify viral genome fragments as lytic
-- [Prodigal-gv](https://github.com/apcamargo/prodigal-gv) was used to identify protein-coding genes and alternative genetic codes
-- [eggNOG-mapper](https://github.com/eggnogdb/eggnog-mapper), [PHROGs](https://phrogs.lmge.uca.fr/), [KOfam](https://www.genome.jp/ftp/db/kofam/), [Pfam](http://pfam.xfam.org/), [UniRef_90](https://ftp.uniprot.org/pub/databases/uniprot/current_release/uniref/uniref90/), [PADLOC](https://github.com/padlocbio/padloc), and the [AcrCatalog](http://acrcatalog.pythonanywhere.com/) were used for phage gene functional annotation
-- [PhaNNs](https://github.com/Adrian-Cantu/PhANNs) were used to infer phage structural genes
+- [tRNAscan-SE](https://github.com/UCSC-LoweLab/tRNAscan-SE) was used to predict tRNAs
+- [prodigal-gv](https://github.com/apcamargo/prodigal-gv) was used to identify protein-coding genes and alternative genetic codes
+- [InterproScan](https://interproscan-docs.readthedocs.io/) (with the [Pfam](https://pfam.xfam.org/), [NCBIfam](https://www.ncbi.nlm.nih.gov/genome/annotation_prok/evidence/), and [HAMAP](https://hamap.expasy.org/) databases), [eggNOG-mapper](https://github.com/eggnogdb/eggnog-mapper), [PHROGs](https://phrogs.lmge.uca.fr/), [KOfam](https://www.genome.jp/ftp/db/kofam/), [UniRef_90](https://ftp.uniprot.org/pub/databases/uniprot/current_release/uniref/uniref90/), [PADLOC](https://github.com/padlocbio/padloc), [dbAPIS](https://bcb.unl.edu/dbAPIS/), and the [AcrCatalog](http://acrcatalog.pythonanywhere.com/) were used for phage gene functional annotation
 - [DGRscan](https://github.com/YuzhenYe/DGRscan) was used to identify diversity-generating retroelements on viruses containing reverse transcriptases
 - [Bowtie2](https://github.com/BenLangmead/bowtie2) was used to align short reads from 1798 whole-metagenomes and 673 viral-enriched metagenomes against the UHGV and database of prokaryotic genomes. [ViromeQC](https://github.com/SegataLab/viromeqc) was used to select human gut viromes. [CoverM](https://github.com/wwood/CoverM) was used to estimate the breadth of coverage and we applied a 50% threshold for classifying virus presence-absence
+- [anvi'o](https://anvio.org/) was used to identify single nucleotide variants (SNVs) and codon variants from read mapping data.
+- [MMseqs2](https://github.com/soedinglab/MMseqs2) was used to cluster viral proteins.
+- [LocalColabFold](https://github.com/YoshitakaMo/localcolabfold) was used to predict protein structures from multiple sequence alignments of protein clusters.
+- [MAFFT](https://mafft.cbrc.jp/alignment/software/) was used to produce multiple sequence alignments of *Caudoviricetes* marker proteins, which were subsequently used to construct a phylogenetic tree with [FastTree2](https://github.com/morgannprice/fasttree/).
 
 For additional details, please refer to our manuscript: (in preparation).
 
 ## Data availability
 
-The UHGV resource is freely available at: [https://portal.nersc.gov/UHGV](https://portal.nersc.gov/UHGV)
+The UHGV resource is freely available at: <https://uhgv.jgi.doe.gov/downloads>
 
 We provide genomes at three quality tiers:
 
@@ -76,7 +81,7 @@ We provide genomes at three quality tiers:
 
 These data are provided for either vOTU representatives or all genomes in each vOTU.
 
-### Recommended files
+### Main files
 
 | File | Description | Link |
 |------|-------------|------|
@@ -84,7 +89,9 @@ These data are provided for either vOTU representatives or all genomes in each v
 | `votus_metadata.tsv` | Metadata for all species-level vOTUs | [Download](https://portal.nersc.gov/UHGV/metadata/votus_metadata.tsv) |
 
 
-### All available files:
+### All available files
+
+#### For all genomes
 
 **metadata/**
 - `uhgv_metadata.tsv`: information for each of the 873,995 UHGV genomes
@@ -100,16 +107,33 @@ These data are provided for either vOTU representatives or all genomes in each v
 - `votus_full.[fna|faa].gz`: vOTU representatives >10 kb or >50% complete
 - `votus_mq_plus.[fna|faa].gz`: vOTU representatives >50% complete
 - `votus_hq_plus.[fna|faa].gz`: vOTU representatives >90% complete
-- `prokaryote_reps.fna.gz`: genomic sequences of gut prokaryotes
+- `host_genomes.tar.gz`: genomic sequences of gut prokaryotes
+
+**phylogeny/**
+- `caudoviricetes_tree.nwk.gz`: phylogenetic tree of Caudoviricetes genomes
+
+**protein_clusters/**
+- `cluster_membership.tsv.gz`: cluster membership of all UHGV proteins
+- `cluster_taxonomy.tsv.gz`: consensus taxonomy (both UHGV and ICTV) for each protein cluster
+- `MSAs.tar.gz`: multiple sequence alignments of protein clusters with ≥15 members
+
+**structures/**
+- `PDB.tar.gz`: PDB files of UHGV predicted protein structures
+
+### Only for vOTU representatives with >50% completeness and confident virus prediction
+
+**annotations/**
+- `protein_annotations.tsv.gz`: functional annotations for proteins encoded by vOTU representatives
+- `tRNAs.tsv.gz`: tRNAs predicted in vOTU representatives
+- `DGRs.tsv.gz`: diversity-generating retroelements predicted in vOTU representatives
 
 **votu_reps/**
-- `[genome_id].fna`: DNA sequence
-- `[genome_id].faa`: protein sequence
-- `[genome_id].gff`: genome annotations
-- `[genome_id]_emapper.tsv`: eggNOG-mapper annotations
-- `[genome_id]_annotations.tsv`: PHROG, Pfam, UniRef90, eggNOG-mapper, PhANNs, KEGG annotations
-
-> Only available for genomes >50% complete with confident virus prediction
+- `votu_reps_list.txt`: list of the paths to each vOTU representative folder
+- `UHGV-*/UHGV-*/[genome_id].fna`: DNA sequence
+- `UHGV-*/UHGV-*/[genome_id].faa`: protein sequence
+- `UHGV-*/UHGV-*/[genome_id].gff`: genome annotations
+- `UHGV-*/UHGV-*/[genome_id]_emapper.tsv`: eggNOG-mapper annotations
+- `UHGV-*/UHGV-*/[genome_id]_annotations.tsv`: Protein functional annotations
 
 **host_predictions/**
 - `crispr_spacers.fna`: 5,318,089 CRISPR spacers
@@ -117,37 +141,44 @@ These data are provided for either vOTU representatives or all genomes in each v
 - `host_assignment_crispr.tsv`: host predictions via CRISPR
 - `host_assignment_kmers.tsv`: host predictions via PHIST
 
-**annotations/**
-- Functional annotation matrices (vOTUs × functions: PHROG, Pfam, KOfam, PADLOC)
-
 **read_mapping/**
-- `metagenomes_prok_vir_counts_matrix.tsv.gz`: CoverM statistics for bulk metagenomes
-- `viromes_prok_vir_counts_matrix.tsv.gz`: CoverM statistics for viral-enriched metagenomes
+- `metagenomes_coverm.tsv.gz`: CoverM statistics for bulk metagenomes
+- `viromes_coverm.tsv.gz`: CoverM statistics for viral-enriched metagenomes
 - `relative_abundance.tsv`: Per-sample relative abundances of viruses and hosts derived from read mapping data
 - `sample_metadata.tsv`: sample metadata (country, lifestyle, age, gender, BMI, study)
 - `fastq_summary.tsv`: sequencing reads info
 - `study_metadata.tsv`: per-study metadata
 
-- **bowtie2_indexes/**
-  - `prokaryote_reps.fna.gz`: prokaryotic genome FASTA
-  - `prokaryote_metadata_table.tsv.gz`: prok genome metadata
-  - `prokaryote_reps.1.bt*`: Bowtie2 indexes
+**bowtie2_indexes/**
+- `prokaryote_reps.fna.gz`: prokaryotic genome FASTA
+- `prokaryote_metadata_table.tsv.gz`: prok genome metadata
+- `prokaryote_reps.1.bt*`: Bowtie2 indexes
 
-## Code availability
+**microdiversity/**
+- `SNVs.tsv.zst`: single nucleotide variants identified through read mapping
+- `codon_pN_pS.tsv.zst`: polymorphic codons and their synonymous/nonsynonymous substitution potentials (pS and pN)
 
 ### Genome Taxonomy Classification
+
 **UHGV-classifier**: command-line tool for classifying genomes using UHGV.
 - [GitHub & installation](https://github.com/snayfach/UHGV-classifier)
 
 ### Read-level Abundance Profiling
+
 **Phanta**: virus-inclusive profiler for human gut metagenomes.
 - [GitHub & installation](https://github.com/bhattlab/phanta#quick-start)
 - UHGV databases:
-  - HQ plus: `wget http://ab_phanta.os.scg.stanford.edu/Phanta_DBs/humgut_uhgv_hqplus_v1.tar.gz`
-  - MQ plus: `wget http://ab_phanta.os.scg.stanford.edu/Phanta_DBs/humgut_uhgv_mqplus_v1.tar.gz`
-> Databases replace the viral portion of Phanta’s default DB with UHGV sequences.
+  - MQ+ UHGV genomes and HumGut prokaryotic genomes: `wget http://ab_phanta.os.scg.stanford.edu/Phanta_DBs/uhgg2_uhgv_v2.tar.gz`
+  - HQ+ UHGV genomes and HumGut prokaryotic genomes: `wget http://ab_phanta.os.scg.stanford.edu/Phanta_DBs/humgut_uhgv_hqplus_v1.tar.gz`
+  - MQ+: `wget http://ab_phanta.os.scg.stanford.edu/Phanta_DBs/humgut_uhgv_mqplus_v1.tar.gz`
+
+**sylph**: ultrafast taxonomic profiling and genome querying for metagenomic samples.
+- [Documentation](https://sylph-docs.github.io/)
+- UHGV databases:
+  - All UHGV vOTU representatives: `wget http://faust.compbio.cs.cmu.edu/sylph-stuff/uhgv_c100_dbv1.syldb`
 
 ### Genome Visualization
+
 - Use [Geneious](https://www.geneious.com/) or any GFF3-compatible tool.
 - Example workflow for a species (`UHGV-0014815`):
   1. Download GFF: `https://portal.nersc.gov/UHGV/votu_reps/UHGV-001/UHGV-0014815/UHGV-0014815.gff`
@@ -159,8 +190,10 @@ These data are provided for either vOTU representatives or all genomes in each v
 
 If you use the UHGV in your research, please cite both the database and the underlying publication:
 
-**Data resource:**  
-Nayfach, S., & Camargo, A. (2025). Unified Human Gut Virome (UHGV) (1.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.17402089
-
 **Publication:**
-Coming soon
+
+> _Coming soon_
+
+**Data resource:**
+
+> Nayfach, S., & Camargo, A. (2025). Unified Human Gut Virome (UHGV) (1.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.17402089
