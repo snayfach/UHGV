@@ -192,7 +192,9 @@ If you use the UHGV in your research, please cite both the database and the unde
 
 **Publication:**
 
-> _Coming soon_
+> [**A genomic atlas of the human gut virome elucidates genetic factors shaping host interactions**](https://www.biorxiv.org/content/10.1101/2025.11.01.686033)
+>
+> Camargo, A. P., Baltoumas, F. A., Ndela, E. O., Fiamenghi, M. B., Merrill, B. D., Carter, M. M., Pinto, Y., Chakraborty, M., Andreeva, A., Ghiotto, G., Shaw, J., Proal, A. D., Sonnenburg, J. L., Bhatt, A. S., Roux, S., Pavlopoulos, G. A., Nayfach, S., & Kyrpides, N. C. — *bioRxiv* (2025), DOI: 10.1101/2025.11.01.686033
 
 **Data resource:**
 
