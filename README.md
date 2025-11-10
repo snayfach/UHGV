@@ -1,21 +1,21 @@
 # Unified Human Gut Virome Catalog (UHGV)
 
-<a href='https://uhgv.jgi.doe.gov/' target="_blank"><img alt='GitHub' src='https://img.shields.io/badge/Website-100000?style=for-the-badge&logoColor=white&color=0d6efd'/></a>
+<a href='https://uhgv.jgi.doe.gov/' target="_blank"><img alt='GitHub' src='https://img.shields.io/badge/Website-100000?style=for-the-badge&logoColor=white&color=0d6efd'/></a> <a href='https://uhgv.jgi.doe.gov/protein-search' target="_blank"><img alt='GitHub' src='https://img.shields.io/badge/Search proteins-100000?style=for-the-badge&logoColor=white&color=0d6efd'/></a> <a href='https://uhgv.jgi.doe.gov/structure-search' target="_blank"><img alt='GitHub' src='https://img.shields.io/badge/Search structures-100000?style=for-the-badge&logoColor=white&color=0d6efd'/></a> <a href='https://github.com/snayfach/UHGV-classifier' target="_blank"><img alt='GitHub' src='https://img.shields.io/badge/Classify genomes-100000?style=for-the-badge&logoColor=white&color=0d6efd'/></a>
 
 The **UHGV** is a comprehensive genomic resource of viruses from the human gut microbiome. Genomes were derived from [12 independent data sources](#data-sources) and annotated using a [uniform bioinformatics pipeline](#bioinformatics-pipeline).
 
 ## Table of Contents
 1. [Code](#code)
 2. [Methods](#methods)
-  - [Data sources](#data-sources)
-  - [Bioinformatics pipeline](#bioinformatics-pipeline)
+    - [Data sources](#data-sources)
+    - [Bioinformatics pipeline](#bioinformatics-pipeline)
 3. [Data Availability](#data-availability)
-  - [Recommended files](#recommended-files)
-  - [All available files](#all-available-files)
+    - [Recommended files](#recommended-files)
+    - [All available files](#all-available-files)
 4. [Tools Using the UHGV](#code-availability)
-  - [Genome Taxonomy Classification](#genome-taxonomy-classification)
-  - [Read-Level Abundance Profiling](#read-level-abundance-profiling)
-  - [Genome Visualization](#genome-visualization)
+    - [Genome Taxonomy Classification](#genome-taxonomy-classification)
+    - [Read-Level Abundance Profiling](#read-level-abundance-profiling)
+    - [Genome Visualization](#genome-visualization)
 5. [Citation](#citation)
 
 ## Code
@@ -65,6 +65,7 @@ Sequences from these studies were combined and run through the following bioinfo
 - [anvi'o](https://anvio.org/) was used to identify single nucleotide variants (SNVs) and codon variants from read mapping data.
 - [MMseqs2](https://github.com/soedinglab/MMseqs2) was used to cluster viral proteins.
 - [LocalColabFold](https://github.com/YoshitakaMo/localcolabfold) was used to predict protein structures from multiple sequence alignments of protein clusters.
+- [Merizo](https://github.com/psipred/Merizo) was used to predict domains in protein structures.
 - [MAFFT](https://mafft.cbrc.jp/alignment/software/) was used to produce multiple sequence alignments of *Caudoviricetes* marker proteins, which were subsequently used to construct a phylogenetic tree with [FastTree2](https://github.com/morgannprice/fasttree/).
 
 For additional details, please refer to our manuscript: (in preparation).
@@ -121,6 +122,8 @@ These data are provided for either vOTU representatives or all genomes in each v
 
 **structures/**
 - `PDB.tar.gz`: PDB files of UHGV predicted protein structures
+- `PDB_references.tar.gz`: PDB files of predicted protein structures of COG, HAMAP, NCBIfam, and Pfam entries
+- `domains.tsv`: domain segmentation of UHGV protein structures
 
 ### Only for vOTU representatives with >50% completeness and confident virus prediction
 
