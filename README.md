@@ -99,7 +99,7 @@ These data are provided for either vOTU representatives or all genomes in each v
 **metadata/**
 - `uhgv_metadata.tsv`: information for each of the 873,995 UHGV genomes
 - `votus_metadata.tsv`: information for 168,536 species-level viral clusters
-- `votus_metadata_extended.tsv`: additional vOTU details
+- `votus_metadata_extra.tsv`: additional vOTU details
 - `host_metadata.tsv`: taxonomy, completeness, contamination, N50 for prokaryotic genomes
 - `source_biosample_metadata.tsv`: information for the samples from which virus genomes were obtained
 
@@ -124,6 +124,7 @@ These data are provided for either vOTU representatives or all genomes in each v
 - `PDB.tar.gz`: PDB files of UHGV predicted protein structures
 - `PDB_references.tar.gz`: PDB files of predicted protein structures of COG, HAMAP, NCBIfam, and Pfam entries
 - `domains.tsv`: domain segmentation of UHGV protein structures
+- `structure_annotations.tsv.gz`: functional annotations for predicted protein structures
 
 ### Only for vOTU representatives with >50% completeness and confident virus prediction
 
